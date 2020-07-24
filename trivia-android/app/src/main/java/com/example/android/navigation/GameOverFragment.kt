@@ -24,7 +24,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameOverBinding
-
+// jules comment
 class GameOverFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
