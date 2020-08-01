@@ -35,4 +35,8 @@
     <string name="share">Share</string>
     <string name="sharing_not_available">Sharing Not Available</string>
     <string name="ButtonContinue">Continue</string>
+    <string name="titleGame">Escode</string>
+    <string name="buttonScoreboard">Scoreboard</string>
+    <string name="buttonNewGame">Start New Game</string>
+    <string name="palmTree">palmtree</string>
 </resources>
