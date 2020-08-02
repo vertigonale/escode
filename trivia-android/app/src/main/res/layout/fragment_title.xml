@@ -26,79 +26,32 @@
         android:id="@+id/titleConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:background="@drawable/a_titlebg">
 
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="285dp"
-            android:layout_height="266dp"
-            android:contentDescription="@string/palmTree"
-            android:src="@drawable/palm"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="165dp" />
-
-        <TextView
-            android:id="@+id/titleGame"
-            android:layout_width="92dp"
-            android:layout_height="40dp"
-
-            android:text="@string/titleGame"
-            android:textSize="40sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/imageView6"
-            app:layout_constraintVertical_bias="0.03" />
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="344dp"
-            android:background="@drawable/bg_menu"
-            android:orientation="vertical"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            android:layout_height="0dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
 
-            <Button
-                android:id="@+id/playButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingStart="@dimen/button_padding"
-                android:paddingEnd="@dimen/button_padding"
-                android:text="@string/buttonNewGame"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/button_text_size"
-                android:textStyle="bold" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <Button
-                android:id="@+id/scoreboardButton"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_marginStart="@dimen/horizontal_margin"
-                android:layout_marginEnd="@dimen/horizontal_margin"
-                android:paddingStart="@dimen/button_padding"
-                android:paddingEnd="@dimen/button_padding"
-                android:text="@string/buttonScoreboard"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/button_text_size"
-                android:textStyle="bold" />
-
-            <Button
-                android:id="@+id/continueButton"
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:paddingStart="@dimen/button_padding"
-                android:paddingEnd="@dimen/button_padding"
-                android:text="@string/ButtonContinue"
-                android:textColor="@color/colorAccent"
-                android:textSize="@dimen/button_text_size"
-                android:textStyle="bold" />
-
-        </LinearLayout>
+        <Button
+            android:id="@+id/playButton"
+            android:layout_width="283dp"
+            android:layout_height="75dp"
+            android:paddingStart="@dimen/button_padding"
+            android:paddingEnd="@dimen/button_padding"
+            android:text="@string/buttonNewGame"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/button_text_size"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="64dp"
+            tools:layout_editor_absoluteY="499dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
