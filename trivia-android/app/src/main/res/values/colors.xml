@@ -31,11 +31,14 @@
     <color name="buttonWrong">#f15562</color>
     <color name="buttonNormal">#c5adeb</color>
 
-    <color name="qbackgrnd">#7f4bd2</color>
+    <color name="qbackgrnd">#8873d8</color>
     <!-- and using opaque to get variations of this color-->
 
     <!-- Background, etc. -->
-    <color name="backgrnd">#72EFDD</color>
+    <color name="bgSky">#72EEDC</color>
+    <color name="bgSand">#EFDD6F</color>
+    <color name="menuBtn">#81604c</color>
+
     <color name="purple">#7400B8</color>
     <color name="frenchviolet">#6930C3</color>
     <color name="slateblue">#5E60CE</color>
@@ -45,7 +48,7 @@
     <color name="skycrayola">#56CFE1</color>
     <color name="turqu">#64DFDF</color>
     <color name="aqua">#80FFDB</color>
-    <color name="sand">#EFDD6F</color>
+
 
 
 
