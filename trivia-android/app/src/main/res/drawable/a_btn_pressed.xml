@@ -13,6 +13,6 @@
         android:bottom="7dp" />
     <stroke
         android:width="2dip"
-        android:color="#FFFFFF" />
+        android:color="#303030" />
         <corners android:radius="8dp" />
 </shape>

@@ -7,13 +7,14 @@
 <!--        android:endColor="#F2F2F2"-->
 <!--        android:angle="90"/>-->
     <solid
-        android:color="#A4A4A4"/>
+        android:color="#A4A4A4" />
+
     <padding android:left="7dp"
         android:top="7dp"
         android:right="7dp"
         android:bottom="7dp" />
     <stroke
         android:width="2dip"
-        android:color="#FFFFFF" />
+        android:color="#303030" />
     <corners android:radius= "8dp" />
 </shape>
