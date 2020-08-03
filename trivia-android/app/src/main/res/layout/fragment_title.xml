@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- TODO Pending task -->
+<?xml version="1.0" encoding="utf-8"?><!-- TODO Pending task -->
 
 <!--
   ~ Copyright 2018, The Android Open Source Project
@@ -26,32 +25,91 @@
         android:id="@+id/titleConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/a_titlebg">
+        android:background="@color/bgSky">
 
+        <ImageView
+            android:id="@+id/title_name"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/a_titlebg2_1"
+            app:layout_constraintBottom_toTopOf="@id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/title_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:contentDescription="@string/palmTree"
+            android:src="@drawable/a_titlebg4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:id="@+id/constraintLayout2"
+            android:layout_width="wrap_content"
             android:layout_height="0dp"
-            android:layout_marginTop="32dp"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintTop_toBottomOf="@+id/title_name">
+
+            <Button
+                android:id="@+id/playButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autoSizeMaxTextSize="36dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/codefont"
+                android:paddingStart="@dimen/button_padding"
+                android:paddingEnd="@dimen/button_padding"
+                android:text="@string/buttonNewGame"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/playButton2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/playButton2"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autoSizeMaxTextSize="36dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/codefont"
+                android:paddingStart="@dimen/button_padding"
+                android:paddingEnd="@dimen/button_padding"
+                android:text="@string/ButtonContinue"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@id/playButton3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playButton" />
+
+            <Button
+                android:id="@+id/playButton3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autoSizeMaxTextSize="36dp"
+                android:autoSizeTextType="uniform"
+                android:fontFamily="@font/codefont"
+                android:paddingStart="@dimen/button_padding"
+                android:paddingEnd="@dimen/button_padding"
+                android:text="@string/buttonScoreboard"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/playButton2" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <Button
-            android:id="@+id/playButton"
-            android:layout_width="283dp"
-            android:layout_height="75dp"
-            android:paddingStart="@dimen/button_padding"
-            android:paddingEnd="@dimen/button_padding"
-            android:text="@string/buttonNewGame"
-            android:textColor="@color/colorAccent"
-            android:textSize="@dimen/button_text_size"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="64dp"
-            tools:layout_editor_absoluteY="499dp" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
