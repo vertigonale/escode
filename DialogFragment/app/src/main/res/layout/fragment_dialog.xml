@@ -19,7 +19,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Mobile Number"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:text="test" />
 
     <EditText
         android:id="@+id/inPassword"

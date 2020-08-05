@@ -1,6 +1,8 @@
 package com.example.android.dialogfragment
 
 import android.app.AlertDialog
+import android.app.Dialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.text.TextUtils
 import android.util.Log
@@ -11,8 +13,11 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
 
-class Dialog : DialogFragment() {
+class MyDialog : DialogFragment() {
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+
+        val message = "Hello! I am Alert Dialog"
         if (arguments != null)
         {
             if (arguments?.getBoolean("notAlertDialog")!!)
@@ -21,8 +26,8 @@ class Dialog : DialogFragment() {
             }
         }
         val builder = AlertDialog.Builder(activity)
-        builder.title = "Alert Dialog"
-        builder.message = "Hello! I am Alert Dialog"
+        builder.setTitle("Alert Dialog")
+        builder.setMessage(message)
         builder.setPositiveButton("Cool", object: DialogInterface.OnClickListener {
             override fun onClick(dialog:DialogInterface, which:Int) {
                 dismiss()

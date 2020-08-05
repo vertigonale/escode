@@ -23,13 +23,16 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
+//import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
     data class Question(
             val text: String,
             val answers: List<String>)
+
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
@@ -62,8 +65,10 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private val numQuestions = Math.min((questions.size + 1) / 2, 3)
 
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
@@ -105,8 +110,16 @@ class GameFragment : Fragment() {
                 }
             }
         }
+
+        binding.btnMyDialog.setOnClickListener { view: View ->
+            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToMyDialog())
+        }
+
         return binding.root
     }
+
+
+
 
     // randomize the questions and set the first question
     private fun randomizeQuestions() {
@@ -124,5 +137,21 @@ class GameFragment : Fragment() {
         // and shuffle them
         answers.shuffle()
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
+    }
+
+
+
+
+    fun onClick(view:View) {
+        when (view.id) {
+
+            R.id.btnMyDialog -> {
+                val dialogFragment = MyDialog()
+                val bundle = Bundle()
+                bundle.putBoolean("notAlertDialog", true)
+                dialogFragment.arguments = bundle
+
+            }
+        }
     }
 }
