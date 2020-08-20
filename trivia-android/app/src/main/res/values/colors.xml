@@ -22,4 +22,37 @@
     <color name="youWinDark">#35A571</color>
     <color name="youWinBackground">#B7F8C9</color>
     <color name="gameOverBackground">#f8bbd0</color>
+
+
+<!-- Our Colors -->
+
+    <!-- Gamescreen - Buttons -->
+    <color name="buttonCorrect">#35c5e9</color>
+    <color name="buttonWrong">#f15562</color>
+    <color name="buttonNormal">#c5adeb</color>
+
+    <color name="qbackgrnd">#8873d8</color>
+    <!-- and using opaque to get variations of this color-->
+
+    <!-- Background, etc. -->
+    <color name="bgSky">#72EEDC</color>
+    <color name="bgSand">#eedc6f</color>
+    <color name="menuBtn">#81604c</color>
+    <color name="menuBtnPressed">#745744</color>
+    <color name="navCol">#5F60CE</color>
+    <color name="notCol">#6930C3</color>
+
+
+    <color name="purple">#7400B8</color>
+    <color name="slateblue">#5E60CE</color>
+    <color name="tuftsblue">#5390D9</color>
+    <color name="bluejeans">#4EA8DE</color>
+    <color name="vividsky">#48BFE3</color>
+    <color name="skycrayola">#56CFE1</color>
+    <color name="turqu">#64DFDF</color>
+    <color name="aqua">#80FFDB</color>
+
+
+
+
 </resources>

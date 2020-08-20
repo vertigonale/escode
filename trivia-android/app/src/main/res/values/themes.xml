@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Theme customization. -->
+        <item name="colorPrimary">@color/navCol</item>
+        <item name="colorPrimaryDark">@color/notCol</item>
+        <item name="colorAccent">#ffff</item>
+
+        <item name="android:buttonStyle">@style/button</item>
+    </style>
+
+</resources>
