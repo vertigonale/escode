@@ -86,6 +86,6 @@
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/myDialogFragment"
-        android:name="com.example.android.navigation.MyDialog"
+        android:name="com.example.android.navigation.GameDialogFragment"
         android:label="MyDialog" />
 </navigation>
