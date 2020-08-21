@@ -104,8 +104,8 @@ class GameFragment : Fragment() {
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
                 } else {
-                    // Game over! A wrong answer sends us to the gameOverFragment.
-                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog())
+                    // Wrong answer! A wrong answer sends us to beginning of puzzle.
+                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
                 }
             }
         }
