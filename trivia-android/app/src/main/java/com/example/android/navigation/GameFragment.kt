@@ -101,17 +101,17 @@ class GameFragment : Fragment() {
                         binding.invalidateAll()
                     } else {
                         // We've won!  Navigate to the gameWonFragment.
-                        view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToMyDialog(/*numQuestions,questionIndex*/))
+                        view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
                 } else {
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToMyDialog())
+                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog())
                 }
             }
         }
 
         binding.btnMyDialog.setOnClickListener { view: View ->
-            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToMyDialog())
+            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog())
         }
 
         return binding.root
