@@ -110,9 +110,10 @@ class GameFragment : Fragment() {
             }
         }
 
-        binding.btnMyDialog.setOnClickListener { view: View ->
+        // in case we need it
+/*        binding.btnMyDialog.setOnClickListener { view: View ->
             view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog())
-        }
+        }*/
 
         return binding.root
     }
@@ -141,7 +142,7 @@ class GameFragment : Fragment() {
 
 
 
-    fun onClick(view:View) {
+/*    fun onClick(view:View) {
         when (view.id) {
 
             R.id.btnMyDialog -> {
@@ -152,5 +153,5 @@ class GameFragment : Fragment() {
 
             }
         }
-    }
+    }*/
 }
