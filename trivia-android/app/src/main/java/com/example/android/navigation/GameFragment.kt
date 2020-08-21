@@ -74,7 +74,7 @@ class GameFragment : Fragment() {
                 inflater, R.layout.fragment_game, container, false)
 
         // Shuffles the questions and sets the question index to the first question.
-        randomizeQuestions()
+        startQuestions()
 
         // Bind this fragment class to the layout
         binding.game = this
@@ -120,9 +120,9 @@ class GameFragment : Fragment() {
 
 
 
-    // randomize the questions and set the first question
-    private fun randomizeQuestions() {
-        questions.shuffle()
+    // sets the first question
+    private fun startQuestions() {
+        /*questions.shuffle()*/
         questionIndex = 0
         setQuestion()
     }
