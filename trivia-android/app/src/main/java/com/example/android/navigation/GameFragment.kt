@@ -134,10 +134,10 @@ class GameFragment : Fragment() {
                     questionIndex++
                     enableBtnS(btn1, btn2, btn3)
                     // Advance to the next question
-                    heartCount = 3
-                    heartCountString = "(plus) " + heartCount.toString()
+                    heartCountPuzzle = 3
+                    heartCountPuzzleString = "(plus) " + heartCountPuzzle.toString()
                     if (questionIndex < numQuestions) {
-                        currentQuestion = questions[questionIndex]
+                        currentQuestion = currentLevel.questions[questionIndex]
                         setQuestion()
                         binding.invalidateAll()
                     } else {
@@ -160,10 +160,10 @@ class GameFragment : Fragment() {
                     } else {
                         questionIndex++
 //                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
-                        heartCount = 3
-                        heartCountString = "(reset) " + heartCount.toString()
+                        heartCountPuzzle = 3
+                        heartCountPuzzleString = "(reset) " + heartCountPuzzle.toString()
                         if (questionIndex < numQuestions) {
-                            currentQuestion = questions[questionIndex]
+                            currentQuestion = currentLevel.questions[questionIndex]
                             setQuestion()
                             binding.invalidateAll()
                         } else {
