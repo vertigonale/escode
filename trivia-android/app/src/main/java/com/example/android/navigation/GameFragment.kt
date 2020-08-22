@@ -18,16 +18,12 @@ package com.example.android.navigation
 
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.widget.*
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -90,26 +86,32 @@ class GameFragment : Fragment() {
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
-
             val radioGroup = binding.questionRadioGroup
-            val btn0 = binding.btn0
+            //val btn0 = binding.btn0
             val btn1 = binding.btn1
             val btn2 = binding.btn2
             val btn3 = binding.btn3
+            lateinit var selectedBtn: RadioButton
+
 
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
             // Do nothing if nothing is checked (id == -1)
             if (-1 != checkedId) {
                 var answerIndex = 0
                 when (checkedId) {
-                    R.id.btn1 -> answerIndex = 1
-                    R.id.btn2 -> answerIndex = 2
-                    R.id.btn3 -> answerIndex = 3
+                    R.id.btn1 -> {answerIndex = 1;
+                                  selectedBtn = btn1}
+                    R.id.btn2 -> {answerIndex = 2;
+                                  selectedBtn = btn2}
+                    R.id.btn3 -> {answerIndex = 3;
+                                  selectedBtn = btn3}
                 }
+
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
                     questionIndex++
+                    enableBtnS(btn1, btn2, btn3)
                     // Advance to the next question
                     heartCount = 3
                     heartCountString = "(plus) " + heartCount.toString()
@@ -122,6 +124,8 @@ class GameFragment : Fragment() {
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
                 } else {
+
+                    disableSelectedBtn(selectedBtn)
 
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
 //                    if (heartCount == 0) {
@@ -143,7 +147,7 @@ class GameFragment : Fragment() {
                             binding.invalidateAll()
                         } else {
                             // We've won!  Navigate to the gameWonFragment.
-                            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                            // view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                         }
                     }
 
@@ -197,8 +201,16 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
 
+    // disables the selected radio button & enables them again for the next level
+    fun disableSelectedBtn (selectedBtn: Button){
+        selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
+    }
 
-
+    fun enableBtnS (b1: Button, b2: Button, b3: Button){
+        b1.isEnabled = true
+        b2.isEnabled = true
+        b3.isEnabled = true
+    }
 
 
 /*    fun onClick(view:View) {
