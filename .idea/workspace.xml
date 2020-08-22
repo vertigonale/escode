@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f3ec3698-aa1d-4cca-aeaa-425469ecb22b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/code/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/code/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/code/.idea/gradle.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f3ec3698-aa1d-4cca-aeaa-425469ecb22b" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,7 +13,7 @@
   </component>
   <component name="ProjectId" id="1f8AmiDXqRXopqlWRnakHgSa7Nj" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/code" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/trivia-android" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />

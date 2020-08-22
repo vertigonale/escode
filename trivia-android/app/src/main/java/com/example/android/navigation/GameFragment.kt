@@ -18,16 +18,12 @@ package com.example.android.navigation
 
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 
@@ -38,33 +34,52 @@ class GameFragment : Fragment() {
             val text: String,
             val answers: List<String>)
 
-    private var heartCount: Int = 3
-    var heartCountString = heartCount.toString()
+    data class Level(
+            val nr: Int,
+            val questions: List<Question>
+    )
+
+    private var heartCountPuzzle: Int = 3
+    private var heartCountLevel = heartCountPuzzle
+    var heartCountPuzzleString = heartCountPuzzle.toString()
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
     // resources so we could internationalize. (or better yet, not define the questions in code...)
-    private val questions: MutableList<Question> = mutableListOf(
+    private val questionsL1: MutableList<Question> = mutableListOf(
             Question(text = "Frage 1",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 2",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 3",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+    )
+
+    private val questionsL2: MutableList<Question> = mutableListOf(
             Question(text = "Frage 4",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 5",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 6",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+    )
+
+    private val questionsL3: MutableList<Question> = mutableListOf(
             Question(text = "Frage 7",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 8",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 9",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 10",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+    )
+
+    private val levels : MutableList<Level> = mutableListOf(
+            Level(nr = 1, questions = questionsL1
+            ),
+            Level(nr = 2, questions = questionsL2
+            ),
+            Level(nr = 3, questions = questionsL3
+            )
     )
 
     lateinit var currentQuestion: Question
@@ -111,6 +126,7 @@ class GameFragment : Fragment() {
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
                     advanceToNextQuestion()
+                    radioGroup.invalidate()
                     binding.invalidateAll()
                 } else {
 
@@ -118,7 +134,7 @@ class GameFragment : Fragment() {
 //                    if (heartCount == 0) {
 //
 //                    }
-                    if (heartCount > 0) {
+                    if (heartCountPuzzle > 0) {
                         resetQuestion()
                         binding.invalidateAll()
                     } else {
@@ -178,14 +194,14 @@ class GameFragment : Fragment() {
 
     private fun resetQuestion() {
         setQuestion()
-        heartCount--
-        heartCountString = "(substract) " + heartCount.toString()
+        heartCountPuzzle--
+        heartCountPuzzleString = "(substract) " + heartCountPuzzle.toString()
     }
 
     private fun advanceToNextQuestion() {
         questionIndex++
-        heartCount = 3
-        heartCountString = "(set1) " + heartCount.toString()
+        heartCountPuzzle = 3
+        heartCountPuzzleString = "(set1) " + heartCountPuzzle.toString()
 
         // Advance to the next question
         if (questionIndex < numQuestions) {
