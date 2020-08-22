@@ -27,15 +27,13 @@
         android:id="@+id/navHeaderImage"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="@dimen/horizontal_margin"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="@dimen/horizontal_margin"
         android:layout_marginBottom="24dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/nav_header" />
+        app:srcCompat="@drawable/a_titlebg2_1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
