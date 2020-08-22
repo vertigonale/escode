@@ -154,16 +154,6 @@ class GameFragment : Fragment() {
                     // Game over! A wrong answer sends us to the gameOverFragment.
 //                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
 
-                    lateinit var selectedBtn: RadioButton
-
-                    when (checkedId) {
-                        R.id.btn0 -> selectedBtn = btn0
-                        R.id.btn1 -> selectedBtn = btn1
-                        R.id.btn2 -> selectedBtn = btn2
-                        R.id.btn3 -> selectedBtn = btn3
-                    }
-
-                    selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
 
 
                 }
