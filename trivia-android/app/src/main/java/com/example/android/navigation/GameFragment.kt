@@ -209,7 +209,7 @@ class GameFragment : Fragment() {
     private fun advanceToNextQuestion() {
         questionIndex++
         heartCountPuzzle = 3
-        heartCountPuzzleString = "(set1) " + heartCountPuzzle.toString()
+        heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString()
 
         // Advance to the next question
         if (questionIndex < numQuestions) {
