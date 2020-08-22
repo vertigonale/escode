@@ -41,11 +41,7 @@
                 android:background="@drawable/a_btn_game_q"
                 android:layout_width="347dp"
                 android:layout_height="77dp"
-<<<<<<< HEAD
-                android:fontFamily="@font/codefont"
-=======
                 android:fontFamily="@font/f_consolas"
->>>>>>> proto1
                 android:text="@{game.currentQuestion.text}"
                 android:textSize="@dimen/question_text_size"
                 android:textStyle="bold"

@@ -24,13 +24,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-<<<<<<< HEAD
 import android.widget.TextView
-=======
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
->>>>>>> proto1
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -125,7 +122,7 @@ class GameFragment : Fragment() {
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
                 } else {
-<<<<<<< HEAD
+
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
 //                    if (heartCount == 0) {
 //
@@ -149,7 +146,7 @@ class GameFragment : Fragment() {
                             view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                         }
                     }
-=======
+
                     // Game over! A wrong answer sends us to the gameOverFragment.
                     view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
 
@@ -164,7 +161,7 @@ class GameFragment : Fragment() {
 
                     selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
 
->>>>>>> proto1
+
                 }
             }
         }
