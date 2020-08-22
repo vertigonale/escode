@@ -32,6 +32,7 @@ class GameFragment : Fragment() {
             val text: String,
             val answers: List<String>)
 
+    var heartCount: Int = 3
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
@@ -105,6 +106,10 @@ class GameFragment : Fragment() {
                     }
                 } else {
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
+                    heartCount--
+//                    if (heartCount == 0) {
+//
+//                    }
                     view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
                 }
             }

@@ -40,7 +40,7 @@
                 android:id="@+id/questionText"
                 android:layout_width="347dp"
                 android:layout_height="77dp"
-                android:fontFamily="sans-serif"
+                android:fontFamily="@font/codefont"
                 android:text="@{game.currentQuestion.text}"
                 android:textSize="@dimen/question_text_size"
                 android:textStyle="bold"
@@ -112,6 +112,19 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.916" />
+
+            <TextView
+                android:id="@+id/hearts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{}"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/questionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.711"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.633" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
