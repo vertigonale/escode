@@ -30,6 +30,7 @@ import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
+
 //import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
@@ -69,7 +70,7 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = 4
+    private val numQuestions = 3
 
     /*Math.min((questions.size + 1) / 2, 3)*/
 
@@ -109,18 +110,8 @@ class GameFragment : Fragment() {
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
-                    questionIndex++
-                    // Advance to the next question
-                    heartCount = 3
-                    heartCountString = "(plus) " + heartCount.toString()
-                    if (questionIndex < numQuestions) {
-                        currentQuestion = questions[questionIndex]
-                        setQuestion()
-                        binding.invalidateAll()
-                    } else {
-                        // We've won!  Navigate to the gameWonFragment.
-                        view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-                    }
+                    advanceToNextQuestion()
+                    binding.invalidateAll()
                 } else {
 
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
@@ -128,27 +119,15 @@ class GameFragment : Fragment() {
 //
 //                    }
                     if (heartCount > 0) {
-                        setQuestion()
+                        resetQuestion()
                         binding.invalidateAll()
-                        heartCount--
-                        heartCountString = "(minus) " + heartCount.toString()
                     } else {
-                        questionIndex++
-//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
-                        heartCount = 3
-                        heartCountString = "(reset) " + heartCount.toString()
-                        if (questionIndex < numQuestions) {
-                            currentQuestion = questions[questionIndex]
-                            setQuestion()
-                            binding.invalidateAll()
-                        } else {
-                            // We've won!  Navigate to the gameWonFragment.
-                            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-                        }
+                        advanceToNextQuestion()
+                        binding.invalidateAll()
                     }
 
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
+//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
 
                     lateinit var selectedBtn: RadioButton
 
@@ -195,6 +174,28 @@ class GameFragment : Fragment() {
         answers.shuffle()*/
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
+    }
+
+    private fun resetQuestion() {
+        setQuestion()
+        heartCount--
+        heartCountString = "(substract) " + heartCount.toString()
+    }
+
+    private fun advanceToNextQuestion() {
+        questionIndex++
+        heartCount = 3
+        heartCountString = "(set1) " + heartCount.toString()
+
+        // Advance to the next question
+        if (questionIndex < numQuestions) {
+            currentQuestion = questions[questionIndex]
+            setQuestion()
+//            binding.invalidateAll()
+        } else {
+            // We've won!  Navigate to the gameWonFragment.
+            view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+        }
     }
 
 
