@@ -52,7 +52,7 @@ class GameFragment : Fragment() {
             Question(text = "Frage 2",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 3",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
     )
 
     private val questionsL2: MutableList<Question> = mutableListOf(
@@ -61,7 +61,7 @@ class GameFragment : Fragment() {
             Question(text = "Frage 5",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 6",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
     )
 
     private val questionsL3: MutableList<Question> = mutableListOf(
@@ -70,7 +70,7 @@ class GameFragment : Fragment() {
             Question(text = "Frage 8",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 9",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
     )
 
     private val levels : MutableList<Level> = mutableListOf(
@@ -82,9 +82,11 @@ class GameFragment : Fragment() {
             )
     )
 
+    lateinit var currentLevel: Level
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
+    private var levelIndex = 0
     private val numQuestions = 3
 
     /*Math.min((questions.size + 1) / 2, 3)*/
@@ -176,13 +178,19 @@ class GameFragment : Fragment() {
     private fun startQuestions() {
         /*questions.shuffle()*/
         questionIndex = 0
+        setLevel()
         setQuestion()
+    }
+
+    private fun setLevel() {
+        currentLevel = levels[levelIndex]
     }
 
     // Sets the question and randomizes the answers.  This only changes the data, not the UI.
     // Calling invalidateAll on the FragmentGameBinding updates the data.
     private fun setQuestion() {
-        currentQuestion = questions[questionIndex]
+        currentQuestion = currentLevel.questions[questionIndex]
+        //currentQuestion = questions[questionIndex]
         // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
 
@@ -205,7 +213,7 @@ class GameFragment : Fragment() {
 
         // Advance to the next question
         if (questionIndex < numQuestions) {
-            currentQuestion = questions[questionIndex]
+            currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
 //            binding.invalidateAll()
         } else {
