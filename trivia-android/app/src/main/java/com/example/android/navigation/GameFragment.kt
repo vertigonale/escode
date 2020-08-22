@@ -148,7 +148,7 @@ class GameFragment : Fragment() {
                     }
 
                     // Game over! A wrong answer sends us to the gameOverFragment.
-                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
+//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
 
                     lateinit var selectedBtn: RadioButton
 
