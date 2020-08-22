@@ -18,12 +18,19 @@ package com.example.android.navigation
 
 import androidx.databinding.DataBindingUtil
 import android.os.Bundle
+import android.provider.MediaStore
 import androidx.fragment.app.Fragment
 import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+<<<<<<< HEAD
 import android.widget.TextView
+=======
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
+>>>>>>> proto1
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -65,7 +72,9 @@ class GameFragment : Fragment() {
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = Math.min((questions.size + 1) / 2, 3)
+    private val numQuestions = 4
+
+    /*Math.min((questions.size + 1) / 2, 3)*/
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -84,14 +93,21 @@ class GameFragment : Fragment() {
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
+
+            val radioGroup = binding.questionRadioGroup
+            val btn0 = binding.btn0
+            val btn1 = binding.btn1
+            val btn2 = binding.btn2
+            val btn3 = binding.btn3
+
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
             // Do nothing if nothing is checked (id == -1)
             if (-1 != checkedId) {
                 var answerIndex = 0
                 when (checkedId) {
-                    R.id.secondAnswerRadioButton -> answerIndex = 1
-                    R.id.thirdAnswerRadioButton -> answerIndex = 2
-                    R.id.fourthAnswerRadioButton -> answerIndex = 3
+                    R.id.btn1 -> answerIndex = 1
+                    R.id.btn2 -> answerIndex = 2
+                    R.id.btn3 -> answerIndex = 3
                 }
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
@@ -109,6 +125,7 @@ class GameFragment : Fragment() {
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
                 } else {
+<<<<<<< HEAD
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
 //                    if (heartCount == 0) {
 //
@@ -132,6 +149,22 @@ class GameFragment : Fragment() {
                             view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                         }
                     }
+=======
+                    // Game over! A wrong answer sends us to the gameOverFragment.
+                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
+
+                    lateinit var selectedBtn: RadioButton
+
+                    when (checkedId) {
+                        R.id.btn0 -> selectedBtn = btn0
+                        R.id.btn1 -> selectedBtn = btn1
+                        R.id.btn2 -> selectedBtn = btn2
+                        R.id.btn3 -> selectedBtn = btn3
+                    }
+
+                    selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
+
+>>>>>>> proto1
                 }
             }
         }
@@ -160,10 +193,13 @@ class GameFragment : Fragment() {
         currentQuestion = questions[questionIndex]
         // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
-        // and shuffle them
-        answers.shuffle()
+
+        /*// and shuffle them
+        answers.shuffle()*/
+
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
     }
+
 
 
 

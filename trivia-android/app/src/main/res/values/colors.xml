@@ -36,12 +36,14 @@
 
     <!-- Background, etc. -->
     <color name="bgSky">#72EEDC</color>
-    <color name="bgSand">#eedc6f</color>
+    <color name="bgSand_Light">#eedc6f</color>
+    <color name="bgSand_Dark">#DDC856</color>
     <color name="menuBtn">#81604c</color>
     <color name="menuBtnPressed">#745744</color>
     <color name="navCol">#5F60CE</color>
     <color name="notCol">#6930C3</color>
 
+    <color name="lightBlack">#303030</color>
 
     <color name="purple">#7400B8</color>
     <color name="slateblue">#5E60CE</color>

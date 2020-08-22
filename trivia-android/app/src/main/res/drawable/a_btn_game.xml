@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:state_enabled="false"
+        android:drawable="@drawable/a_btn_disabled" />
+    <item
+        android:state_checkable="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/a_btn_game_enabled" />
+    <item
+        android:state_checked="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/a_btn_game_disabled" />
+    <item
+        android:state_focused="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/a_btn_focused" />
+    <item
+        android:state_enabled="true"
+        android:drawable="@drawable/a_btn_game_enabled" />
+</selector>

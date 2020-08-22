@@ -16,8 +16,6 @@
 
 <resources>
 
-
-
     <style name="button" parent="@android:style/Widget.Button">
         <item name="android:gravity">center_vertical|center_horizontal</item>
         <item name="android:textColor">#FFFFFFFF</item>
@@ -27,8 +25,13 @@
         <item name="android:shadowRadius">0.2</item>
         <item name="android:textSize">35sp</item>
         <item name="android:textStyle">bold</item>
-        <item name="android:background">@drawable/a_btn</item>
+        <item name="android:background">@drawable/a_btn_general</item>
         <item name="android:focusable">true</item>
         <item name="android:clickable">true</item>
+    </style>
+
+    <style name="RadioButtonStyle" parent="Theme.AppCompat.Light">
+        <item name="colorAccent">@color/lightBlack</item> <!-- when checked -->
+        <item name="android:textColorSecondary">@android:color/white</item> <!-- when unchecked -->
     </style>
 </resources>

@@ -38,14 +38,20 @@
 
             <TextView
                 android:id="@+id/questionText"
+                android:background="@drawable/a_btn_game_q"
                 android:layout_width="347dp"
                 android:layout_height="77dp"
+<<<<<<< HEAD
                 android:fontFamily="@font/codefont"
+=======
+                android:fontFamily="@font/f_consolas"
+>>>>>>> proto1
                 android:text="@{game.currentQuestion.text}"
                 android:textSize="@dimen/question_text_size"
                 android:textStyle="bold"
+                android:textColor="@color/lightBlack"
                 android:typeface="normal"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/questionRadioGroup"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -57,7 +63,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
-                android:layout_marginTop="100dp"
+                android:layout_marginTop="32dp"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
                 android:animateLayoutChanges="true"
                 android:orientation="vertical"
@@ -67,35 +73,47 @@
                 app:layout_constraintTop_toBottomOf="@+id/questionText">
 
                 <RadioButton
-                    android:id="@+id/firstAnswerRadioButton"
+                    android:id="@+id/btn0"
+                    android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:text="@{game.answers[0]}"
-                    android:textSize="@dimen/answer_text_size" />
+                    android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
+                    android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
-                    android:id="@+id/secondAnswerRadioButton"
+                    android:id="@+id/btn1"
+                    android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:text="@{game.answers[1]}"
-                    android:textSize="@dimen/answer_text_size" />
+                    android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
+                    android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
-                    android:id="@+id/thirdAnswerRadioButton"
+                    android:id="@+id/btn2"
+                    android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
                     android:text="@{game.answers[2]}"
-                    android:textSize="@dimen/answer_text_size" />
+                    android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
+                    android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
-                    android:id="@+id/fourthAnswerRadioButton"
+                    android:id="@+id/btn3"
+                    android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="@{game.answers[3]}"
-                    android:textSize="@dimen/answer_text_size" />
+                    android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
+                    android:theme="@style/RadioButtonStyle"/>
             </RadioGroup>
 
             <Button
@@ -104,14 +122,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
                 android:layout_marginEnd="@dimen/question_horizontal_margin"
+                android:fontFamily="@font/f_consolas"
+                android:padding="10sp"
                 android:text="@string/submit_button"
-                android:textSize="@dimen/button_text_size"
+                android:textSize="25sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.467"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.916" />
+                app:layout_constraintTop_toBottomOf="@+id/questionRadioGroup" />
 
             <TextView
                 android:id="@+id/hearts"

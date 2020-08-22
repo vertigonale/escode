@@ -9,6 +9,7 @@
         <item name="colorAccent">#ffff</item>
 
         <item name="android:buttonStyle">@style/button</item>
+        <item name="android:radioButtonStyle">@style/button</item>
     </style>
 
 </resources>

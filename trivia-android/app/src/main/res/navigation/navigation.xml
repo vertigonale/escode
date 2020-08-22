@@ -35,7 +35,7 @@
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_game">
         <action
-            android:id="@+id/action_gameFragment_to_gameDialog"
+            android:id="@+id/actionGameFragmentToGameDialog"
             app:destination="@id/gameDialogFragment" />
         <action
             android:id="@+id/actionGameFragmentToSelf"
