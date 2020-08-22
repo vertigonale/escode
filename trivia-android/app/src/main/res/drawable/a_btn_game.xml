@@ -5,7 +5,11 @@
         android:state_enabled="false"
         android:drawable="@drawable/a_btn_disabled" />
     <item
-        android:state_pressed="true"
+        android:state_checkable="true"
+        android:state_enabled="true"
+        android:drawable="@drawable/a_btn_game_enabled" />
+    <item
+        android:state_checked="true"
         android:state_enabled="true"
         android:drawable="@drawable/a_btn_game_disabled" />
     <item

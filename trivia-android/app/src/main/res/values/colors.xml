@@ -37,7 +37,7 @@
     <!-- Background, etc. -->
     <color name="bgSky">#72EEDC</color>
     <color name="bgSand_Light">#eedc6f</color>
-    <color name="bgSand_Dark">#D1C689</color>
+    <color name="bgSand_Dark">#DDC856</color>
     <color name="menuBtn">#81604c</color>
     <color name="menuBtnPressed">#745744</color>
     <color name="navCol">#5F60CE</color>

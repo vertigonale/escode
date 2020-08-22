@@ -56,7 +56,6 @@
 
             <RadioGroup
                 android:id="@+id/questionRadioGroup"
-
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/question_horizontal_margin"
@@ -75,9 +74,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:background="@drawable/a_btn_game_enabled"
                     android:text="@{game.answers[0]}"
                     android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
                     android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
@@ -86,9 +85,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:background="@drawable/a_btn_game_enabled"
                     android:text="@{game.answers[1]}"
                     android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
                     android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
@@ -97,9 +96,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
-                    android:background="@drawable/a_btn_game_enabled"
                     android:text="@{game.answers[2]}"
                     android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
                     android:theme="@style/RadioButtonStyle"/>
 
                 <RadioButton
@@ -107,9 +106,9 @@
                     android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/a_btn_game_enabled"
                     android:text="@{game.answers[3]}"
                     android:textSize="@dimen/answer_text_size"
+                    android:background="@drawable/a_btn_game"
                     android:theme="@style/RadioButtonStyle"/>
             </RadioGroup>
 
