@@ -33,39 +33,60 @@ class GameFragment : Fragment() {
             val text: String,
             val answers: List<String>)
 
-    private var heartCount: Int = 3
-    var heartCountString = heartCount.toString()
+    data class Level(
+            val nr: Int,
+            val questions: List<Question>
+    )
+
+    private var heartCountPuzzle: Int = 3
+    private var heartCountLevel = heartCountPuzzle
+    var heartCountPuzzleString = heartCountPuzzle.toString()
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
     // resources so we could internationalize. (or better yet, not define the questions in code...)
-    private val questions: MutableList<Question> = mutableListOf(
+    private val questionsL1: MutableList<Question> = mutableListOf(
             Question(text = "Frage 1",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 2",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 3",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+    )
+
+    private val questionsL2: MutableList<Question> = mutableListOf(
             Question(text = "Frage 4",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 5",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 6",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
+                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+    )
+
+    private val questionsL3: MutableList<Question> = mutableListOf(
             Question(text = "Frage 7",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 8",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
             Question(text = "Frage 9",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 10",
                     answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
     )
 
+    private val levels : MutableList<Level> = mutableListOf(
+            Level(nr = 1, questions = questionsL1
+            ),
+            Level(nr = 2, questions = questionsL2
+            ),
+            Level(nr = 3, questions = questionsL3
+            )
+    )
+
+    lateinit var currentLevel: Level
     lateinit var currentQuestion: Question
     lateinit var answers: MutableList<String>
     private var questionIndex = 0
-    private val numQuestions = 4
+    private var levelIndex = 0
+    private val numQuestions = 3
 
     /*Math.min((questions.size + 1) / 2, 3)*/
 
@@ -131,11 +152,9 @@ class GameFragment : Fragment() {
 //                    if (heartCount == 0) {
 //
 //                    }
-                    if (heartCount > 0) {
-                        setQuestion()
+                    if (heartCountPuzzle > 0) {
+                        resetQuestion()
                         binding.invalidateAll()
-                        heartCount--
-                        heartCountString = "(minus) " + heartCount.toString()
                     } else {
                         questionIndex++
 //                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
@@ -195,6 +214,28 @@ class GameFragment : Fragment() {
     fun disableSelectedBtn (selectedBtn: Button){
         selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
     }
+    private fun resetQuestion() {
+        setQuestion()
+        heartCountPuzzle--
+        heartCountPuzzleString = "(substract) " + heartCountPuzzle.toString()
+    }
+
+    private fun advanceToNextQuestion() {
+        questionIndex++
+        heartCountPuzzle = 3
+        heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString()
+
+        // Advance to the next question
+        if (questionIndex < numQuestions) {
+            currentQuestion = currentLevel.questions[questionIndex]
+            setQuestion()
+//            binding.invalidateAll()
+        } else {
+            // We've won!  Navigate to the gameWonFragment.
+            view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+        }
+    }
+
 
     fun enableBtnS (b1: Button, b2: Button, b3: Button){
         b1.isEnabled = true
