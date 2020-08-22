@@ -117,7 +117,7 @@
                 android:id="@+id/hearts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{}"
+                android:text="@{game.heartCountString}"
                 android:textSize="36sp"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
                 app:layout_constraintEnd_toEndOf="parent"

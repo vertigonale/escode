@@ -23,6 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -32,7 +33,8 @@ class GameFragment : Fragment() {
             val text: String,
             val answers: List<String>)
 
-    var heartCount: Int = 3
+    private var heartCount: Int = 3
+    var heartCountString = heartCount.toString()
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
@@ -96,6 +98,8 @@ class GameFragment : Fragment() {
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
                     questionIndex++
                     // Advance to the next question
+                    heartCount = 3
+                    heartCountString = "(plus) " + heartCount.toString()
                     if (questionIndex < numQuestions) {
                         currentQuestion = questions[questionIndex]
                         setQuestion()
@@ -106,11 +110,28 @@ class GameFragment : Fragment() {
                     }
                 } else {
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
-                    heartCount--
 //                    if (heartCount == 0) {
 //
 //                    }
-                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
+                    if (heartCount > 0) {
+                        setQuestion()
+                        binding.invalidateAll()
+                        heartCount--
+                        heartCountString = "(minus) " + heartCount.toString()
+                    } else {
+                        questionIndex++
+//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
+                        heartCount = 3
+                        heartCountString = "(reset) " + heartCount.toString()
+                        if (questionIndex < numQuestions) {
+                            currentQuestion = questions[questionIndex]
+                            setQuestion()
+                            binding.invalidateAll()
+                        } else {
+                            // We've won!  Navigate to the gameWonFragment.
+                            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                        }
+                    }
                 }
             }
         }
