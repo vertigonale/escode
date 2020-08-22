@@ -144,6 +144,8 @@ class GameFragment : Fragment() {
                         // We've won!  Navigate to the gameWonFragment.
                         view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                     }
+                    advanceToNextQuestion()
+                    binding.invalidateAll()
                 } else {
 
                     disableSelectedBtn(selectedBtn)
@@ -194,13 +196,19 @@ class GameFragment : Fragment() {
     private fun startQuestions() {
         /*questions.shuffle()*/
         questionIndex = 0
+        setLevel()
         setQuestion()
+    }
+
+    private fun setLevel() {
+        currentLevel = levels[levelIndex]
     }
 
     // Sets the question and randomizes the answers.  This only changes the data, not the UI.
     // Calling invalidateAll on the FragmentGameBinding updates the data.
     private fun setQuestion() {
-        currentQuestion = questions[questionIndex]
+        currentQuestion = currentLevel.questions[questionIndex]
+        //currentQuestion = questions[questionIndex]
         // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
 
