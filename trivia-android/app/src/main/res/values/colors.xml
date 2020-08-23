@@ -34,6 +34,8 @@
     <color name="qbackgrnd">#8873d8</color>
     <!-- and using opaque to get variations of this color-->
 
+    <color name="transparent">#00000000</color>
+
     <!-- Background, etc. -->
     <color name="bgSky">#72EEDC</color>
     <color name="bgSand_Light">#eedc6f</color>
