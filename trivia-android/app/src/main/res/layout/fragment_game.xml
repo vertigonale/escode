@@ -140,7 +140,6 @@
                 android:id="@+id/heartsPuzzle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{game.heartCountPuzzleString}"
                 android:textSize="@dimen/general_text_size"
                 android:text="@{game.heartCountPuzzleString + `/3`}"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
