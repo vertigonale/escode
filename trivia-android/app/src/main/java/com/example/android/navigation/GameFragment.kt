@@ -83,11 +83,12 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private var levelIndex = 0
     private val numQuestions = 3
+    private val numLevels = 3
     /*Math.min((questions.size + 1) / 2, 3)*/
 
     private var heartCountPuzzle: Int = 3
     private var heartCountLevel = heartCountPuzzle
-    var heartCountPuzzleString = heartCountPuzzle.toString()
+    var heartCountPuzzleString = "(initial) " + heartCountPuzzle.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -183,7 +184,7 @@ class GameFragment : Fragment() {
         /*// and shuffle them
         answers.shuffle()*/
 
-        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions)
+        (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions, levelIndex + 1, numLevels)
     }
 
     // disables the selected radio button & enables them again for the next level
