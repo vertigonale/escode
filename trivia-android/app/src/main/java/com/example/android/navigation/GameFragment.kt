@@ -114,6 +114,7 @@ class GameFragment : Fragment() {
 
 
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
+
             // Do nothing if nothing is checked (id == -1)
             if (-1 != checkedId) {
                 var answerIndex = 0
@@ -129,52 +130,21 @@ class GameFragment : Fragment() {
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
-                    questionIndex++
-                    enableBtnS(btn1, btn2, btn3)
-                    // Advance to the next question
-                    heartCountPuzzle = 3
-                    heartCountPuzzleString = "(plus) " + heartCountPuzzle.toString()
-                    if (questionIndex < numQuestions) {
-                        currentQuestion = currentLevel.questions[questionIndex]
-                        setQuestion()
-                        binding.invalidateAll()
-                    } else {
-                        // We've won!  Navigate to the gameWonFragment.
-                        view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-                    }
                     advanceToNextQuestion()
+                    enableBtnS(btn1, btn2, btn3)
                     binding.invalidateAll()
-                } else {
 
-                    disableSelectedBtn(selectedBtn)
-
+                    } else {
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
-//                    if (heartCount == 0) {
-//
-//                    }
                     if (heartCountPuzzle > 0) {
                         resetQuestion()
+                        disableSelectedBtn(selectedBtn)
                         binding.invalidateAll()
                     } else {
-                        questionIndex++
-//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
-                        heartCountPuzzle = 3
-                        heartCountPuzzleString = "(reset) " + heartCountPuzzle.toString()
-                        if (questionIndex < numQuestions) {
-                            currentQuestion = currentLevel.questions[questionIndex]
-                            setQuestion()
-                            binding.invalidateAll()
-                        } else {
-                            // We've won!  Navigate to the gameWonFragment.
-                             view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-                        }
+                        advanceToNextQuestion()
+                        enableBtnS(btn1, btn2, btn3)
+                        binding.invalidateAll()
                     }
-
-                    // Game over! A wrong answer sends us to the gameOverFragment.
-//                    view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToSelf())
-
-
-
                 }
             }
         }
@@ -242,7 +212,6 @@ class GameFragment : Fragment() {
             view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
         }
     }
-
 
     fun enableBtnS (b1: Button, b2: Button, b3: Button){
         b1.isEnabled = true
