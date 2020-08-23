@@ -31,9 +31,10 @@
     <color name="buttonWrong">#f15562</color>
     <color name="buttonNormal">#c5adeb</color>
 
-    <color name="qbackgrnd">#8873d8</color>
+    <color name="qbackgrnd">#6572EEDC</color>
     <!-- and using opaque to get variations of this color-->
 
+    <color name="popup">#CE8873D8</color>
     <color name="transparent">#00000000</color>
 
     <!-- Background, etc. -->

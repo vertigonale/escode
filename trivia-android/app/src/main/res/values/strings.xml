@@ -39,4 +39,7 @@
     <string name="buttonScoreboard">Scoreboard</string>
     <string name="buttonNewGame">Start New Game</string>
     <string name="palmTree">palmtree</string>
+
+    <string name="popTitle_level">Congratulation!</string>
+    <string name="popText_level">You got %1$d/%2$d Questions correct!</string>
 </resources>
