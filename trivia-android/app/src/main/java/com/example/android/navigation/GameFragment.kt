@@ -38,10 +38,6 @@ class GameFragment : Fragment() {
             val questions: List<Question>
     )
 
-    private var heartCountPuzzle: Int = 3
-    private var heartCountLevel = heartCountPuzzle
-    var heartCountPuzzleString = heartCountPuzzle.toString()
-
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
     // resources so we could internationalize. (or better yet, not define the questions in code...)
@@ -87,9 +83,11 @@ class GameFragment : Fragment() {
     private var questionIndex = 0
     private var levelIndex = 0
     private val numQuestions = 3
-
     /*Math.min((questions.size + 1) / 2, 3)*/
 
+    private var heartCountPuzzle: Int = 3
+    private var heartCountLevel = heartCountPuzzle
+    var heartCountPuzzleString = heartCountPuzzle.toString()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -168,7 +166,7 @@ class GameFragment : Fragment() {
                             binding.invalidateAll()
                         } else {
                             // We've won!  Navigate to the gameWonFragment.
-                            // view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                             view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                         }
                     }
 
@@ -222,6 +220,7 @@ class GameFragment : Fragment() {
     fun disableSelectedBtn (selectedBtn: Button){
         selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
     }
+
     private fun resetQuestion() {
         setQuestion()
         heartCountPuzzle--
