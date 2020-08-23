@@ -209,7 +209,7 @@ class GameFragment : Fragment() {
 
     private fun advanceToNextQuestion() {
         questionIndex++
-        heartCountLevel = heartCountLevel + heartCountPuzzle
+        heartCountLevel += heartCountPuzzle
         heartCountTotal = heartCountLevel
         heartCountPuzzle = 3
         heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString() + "/3"
@@ -225,6 +225,12 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+            if (levelIndex < 3) {
+                levelIndex++
+                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+            } else {
+                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
+            }
         }
     }
 

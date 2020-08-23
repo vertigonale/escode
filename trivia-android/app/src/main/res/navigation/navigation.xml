@@ -38,8 +38,8 @@
             android:id="@+id/action_gameFragment_to_gameDialog"
             app:destination="@id/gameDialogFragment" />
         <action
-            android:id="@+id/actionGameFragmentToSelf"
-            app:destination="@id/gameFragment" />
+            android:id="@+id/action_gameFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
