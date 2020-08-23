@@ -206,7 +206,7 @@ class GameFragment : Fragment() {
     private fun advanceToNextQuestion() {
         questionIndex++
         heartCountLevel = heartCountLevel + heartCountPuzzle
-        heartCountTotal = heartCountTotal + heartCountLevel
+        heartCountTotal = heartCountLevel
         heartCountPuzzle = 3
         heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString() + "/3"
         heartCountLevelString = "(nextSet) " + heartCountLevel.toString() + "/9"
