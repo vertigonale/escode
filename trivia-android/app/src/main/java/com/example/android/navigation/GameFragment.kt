@@ -88,8 +88,10 @@ class GameFragment : Fragment() {
 
     private var heartCountPuzzle: Int = 3
     private var heartCountLevel = 0
+    private var heartCountTotal = 0
     var heartCountPuzzleString = "(initial) " + heartCountPuzzle.toString() + "/3"
     var heartCountLevelString = "(initial) " + heartCountLevel.toString() + "/9"
+    var heartCountTotalString = "(initial) " + heartCountTotal.toString() + "/27"
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -198,14 +200,17 @@ class GameFragment : Fragment() {
         heartCountPuzzle--
         heartCountPuzzleString = "(substract) " + heartCountPuzzle.toString() + "/3"
         heartCountLevelString = "(substract) " + heartCountLevel.toString() + "/9"
+        heartCountTotalString = "(substract) " + heartCountTotal.toString() + "/27"
     }
 
     private fun advanceToNextQuestion() {
         questionIndex++
         heartCountLevel = heartCountLevel + heartCountPuzzle
+        heartCountTotal = heartCountTotal + heartCountLevel
         heartCountPuzzle = 3
         heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString() + "/3"
         heartCountLevelString = "(nextSet) " + heartCountLevel.toString() + "/9"
+        heartCountTotalString = "(nextSet) " + heartCountTotal.toString() + "/27"
 
         // Advance to the next question
         if (questionIndex < numQuestions) {
