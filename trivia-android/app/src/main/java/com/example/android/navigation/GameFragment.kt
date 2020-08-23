@@ -146,7 +146,7 @@ class GameFragment : Fragment() {
                     } else {
                         advanceToNextQuestion()
                         enableBtnS(btn1, btn2, btn3)
-                        showPopup()
+//                      showPopup()
                         binding.invalidateAll()
                     }
                 }
@@ -212,10 +212,10 @@ class GameFragment : Fragment() {
             setQuestion()
 //            binding.invalidateAll()
         }
-//        else {
-//            // We've won!  Navigate to the gameWonFragment.
-//            // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-//        }
+        else {
+            // We've won!  Navigate to the gameWonFragment.
+            // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+        }
     }
 
     fun enableBtnS (b1: Button, b2: Button, b3: Button){
