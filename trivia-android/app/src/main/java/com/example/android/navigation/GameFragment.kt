@@ -225,10 +225,11 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-            if (levelIndex < 3) {
+            if (levelIndex < 2) {
                 levelIndex++
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
+                levelIndex = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
             }
         }
