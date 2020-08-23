@@ -103,6 +103,9 @@ class GameFragment : Fragment() {
         // Bind this fragment class to the layout
         binding.game = this
 
+        // variables to get access to popUp
+
+
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
             val radioGroup = binding.questionRadioGroup
@@ -143,6 +146,7 @@ class GameFragment : Fragment() {
                     } else {
                         advanceToNextQuestion()
                         enableBtnS(btn1, btn2, btn3)
+                        showPopup()
                         binding.invalidateAll()
                     }
                 }
@@ -207,16 +211,23 @@ class GameFragment : Fragment() {
             currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
 //            binding.invalidateAll()
-        } else {
-            // We've won!  Navigate to the gameWonFragment.
-            view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
         }
+//        else {
+//            // We've won!  Navigate to the gameWonFragment.
+//            // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+//        }
     }
 
     fun enableBtnS (b1: Button, b2: Button, b3: Button){
         b1.isEnabled = true
         b2.isEnabled = true
         b3.isEnabled = true
+    }
+
+
+    fun showPopup (){
+
+
     }
 
 
