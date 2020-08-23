@@ -89,17 +89,19 @@ class GameFragment : Fragment() {
     private var heartCountPuzzle: Int = 3
     private var heartCountLevel = 0
     private var heartCountTotal = 0
-    var heartCountPuzzleString = "(initial) " + heartCountPuzzle.toString() + "/3"
-    var heartCountLevelString = "(initial) " + heartCountLevel.toString() + "/9"
-    var heartCountTotalString = "(initial) " + heartCountTotal.toString() + "/27"
+    lateinit var heartCountPuzzleString: String
+    lateinit var heartCountLevelString: String
+    lateinit var heartCountTotalString: String
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
+
+        // get default heartcount as string
+        heartCountToString()
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
@@ -202,19 +204,15 @@ class GameFragment : Fragment() {
     private fun resetQuestion() {
         setQuestion()
         heartCountPuzzle--
-        heartCountPuzzleString = "(substract) " + heartCountPuzzle.toString() + "/3"
-        heartCountLevelString = "(substract) " + heartCountLevel.toString() + "/9"
-        heartCountTotalString = "(substract) " + heartCountTotal.toString() + "/27"
+        heartCountToString()
     }
 
     private fun advanceToNextQuestion() {
         questionIndex++
         heartCountLevel += heartCountPuzzle
-        heartCountTotal = heartCountLevel
+        heartCountTotal+= heartCountLevel
         heartCountPuzzle = 3
-        heartCountPuzzleString = "(nextSet) " + heartCountPuzzle.toString() + "/3"
-        heartCountLevelString = "(nextSet) " + heartCountLevel.toString() + "/9"
-        heartCountTotalString = "(nextSet) " + heartCountTotal.toString() + "/27"
+        heartCountToString()
 
         // Advance to the next question
         if (questionIndex < numQuestions) {
@@ -227,6 +225,7 @@ class GameFragment : Fragment() {
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             if (levelIndex < 2) {
                 levelIndex++
+//                heartCountLevel = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
                 levelIndex = 0
@@ -239,6 +238,12 @@ class GameFragment : Fragment() {
         b1.isEnabled = true
         b2.isEnabled = true
         b3.isEnabled = true
+    }
+
+    private fun heartCountToString() {
+        heartCountPuzzleString = heartCountPuzzle.toString()
+        heartCountLevelString = heartCountLevel.toString()
+        heartCountTotalString = heartCountTotal.toString()
     }
 
 
