@@ -129,17 +129,30 @@
                 app:layout_constraintTop_toBottomOf="@+id/questionRadioGroup" />
 
             <TextView
-                android:id="@+id/hearts"
+                android:id="@+id/heartsPuzzle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@{game.heartCountPuzzleString}"
                 android:textSize="36sp"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.711"
+                app:layout_constraintHorizontal_bias="0.722"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.633" />
+                app:layout_constraintVertical_bias="0.152" />
+
+            <TextView
+                android:id="@+id/heartsLevel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{game.heartCountLevelString}"
+                android:textSize="36sp"
+                app:layout_constraintBottom_toTopOf="@+id/questionText"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.722"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.78" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
