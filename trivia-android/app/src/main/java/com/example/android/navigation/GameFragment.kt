@@ -101,7 +101,7 @@ class GameFragment : Fragment() {
                 inflater, R.layout.fragment_game, container, false)
 
         // get default heartcount as string
-        heartCountToString()
+
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
@@ -120,7 +120,6 @@ class GameFragment : Fragment() {
             val btn2 = binding.btn2
             val btn3 = binding.btn3
             lateinit var selectedBtn: RadioButton
-
 
             val checkedId = binding.questionRadioGroup.checkedRadioButtonId
 
@@ -176,6 +175,7 @@ class GameFragment : Fragment() {
         questionIndex = 0
         setLevel()
         setQuestion()
+        heartCountToString()
     }
 
     private fun setLevel() {
@@ -209,8 +209,8 @@ class GameFragment : Fragment() {
 
     private fun advanceToNextQuestion() {
         questionIndex++
+        heartCountTotal+= heartCountPuzzle
         heartCountLevel += heartCountPuzzle
-        heartCountTotal+= heartCountLevel
         heartCountPuzzle = 3
         heartCountToString()
 
@@ -225,7 +225,7 @@ class GameFragment : Fragment() {
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             if (levelIndex < 2) {
                 levelIndex++
-//                heartCountLevel = 0
+                heartCountLevel = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
                 levelIndex = 0
