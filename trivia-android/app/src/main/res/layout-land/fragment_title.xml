@@ -25,7 +25,7 @@
         android:id="@+id/titleConstraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/a_titlebg1">
+        android:background="@color/bgSky">
 
         <ImageView
             android:id="@+id/title_name"
@@ -38,15 +38,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- kann in Zukunft wieder nützlich sein-->
         <ImageView
             android:id="@+id/title_bg"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:contentDescription="@string/palmTree"
 
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
