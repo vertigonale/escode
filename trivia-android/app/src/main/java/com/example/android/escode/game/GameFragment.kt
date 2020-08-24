@@ -28,6 +28,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
+import kotlinx.android.synthetic.main.fragment_game.*
 
 //import kotlinx.android.synthetic.main.fragment_game.*
 
@@ -119,15 +120,15 @@ class GameFragment : Fragment() {
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
-            val radioGroup = binding.questionRadioGroup
-            //val btn0 = binding.btn0
-            val btn1 = binding.btn1
-            val btn2 = binding.btn2
-            val btn3 = binding.btn3
+//            val radioGroup = questionRadioGroup
+            //val btn0 = btn0
+//            val btn1 = btn1
+//            val btn2 = btn2
+//            val btn3 = btn3
+
+            val checkedId = questionRadioGroup.checkedRadioButtonId
+
             lateinit var selectedBtn: RadioButton
-
-            val checkedId = binding.questionRadioGroup.checkedRadioButtonId
-
             // Do nothing if nothing is checked (id == -1)
             if (-1 != checkedId) {
                 var answerIndex = 0
