@@ -114,13 +114,11 @@ class GameFragment : Fragment() {
 
         // variables to get access to popUp
 
-        val btnSimpleDialog = binding.testPopup
-        binding.submitButton.setOnClickListener { view: View ->
-            val dialogFragment = DialogFragment()
-            dialogFragment.show(fragmentManager, "simple dialog")
-        }
-
-
+//        val btnSimpleDialog = binding.testPopup
+//        binding.submitButton.setOnClickListener { view: View ->
+//            val dialogFragment = DialogFragment()
+//            dialogFragment.show(fragmentManager, "simple dialog")
+//        }
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
