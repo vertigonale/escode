@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.navigation
+package com.example.android.escode.game
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -24,10 +24,10 @@ import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
-import com.example.android.navigation.databinding.FragmentGameBinding
+import com.example.android.escode.R
+import com.example.android.escode.databinding.FragmentGameBinding
 
 //import kotlinx.android.synthetic.main.fragment_game.*
 

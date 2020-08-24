@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.navigation
+package com.example.android.escode.game
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -25,10 +25,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.example.android.navigation.databinding.FragmentTitleBinding
+import com.example.android.escode.R
+import com.example.android.escode.game.TitleFragmentDirections
+import com.example.android.escode.databinding.FragmentTitleBinding
 // Serena Comment
 class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

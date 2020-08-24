@@ -22,7 +22,7 @@
     app:startDestination="@+id/titleFragment">
     <fragment
         android:id="@+id/titleFragment"
-        android:name="com.example.android.navigation.TitleFragment"
+        android:name="com.example.android.escode.game.TitleFragment"
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_title">
         <action
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
-        android:name="com.example.android.navigation.GameFragment"
+        android:name="com.example.android.escode.game.GameFragment"
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_game">
         <action
@@ -43,16 +43,16 @@
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
-        android:name="com.example.android.navigation.RulesFragment"
+        android:name="com.example.android.escode.game.RulesFragment"
         android:label="@string/title_trivia_rules"
         tools:layout="@layout/fragment_rules" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="com.example.android.navigation.AboutFragment"
+        android:name="com.example.android.escode.game.AboutFragment"
         android:label="@string/title_about_trivia"
         tools:layout="@layout/fragment_about" />
     <fragment
         android:id="@+id/gameDialogFragment"
-        android:name="com.example.android.navigation.GameDialogFragment"
+        android:name="com.example.android.escode.game.GameDialogFragment"
         android:label="GameDialog" />
 </navigation>
