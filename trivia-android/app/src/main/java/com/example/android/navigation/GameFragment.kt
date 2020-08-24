@@ -103,9 +103,6 @@ class GameFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
 
-        // get default heartcount as string
-
-
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
 
