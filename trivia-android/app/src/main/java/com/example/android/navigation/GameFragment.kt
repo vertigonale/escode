@@ -16,16 +16,19 @@
 
 package com.example.android.navigation
 
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import androidx.appcompat.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.RadioButton
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.android.navigation.databinding.FragmentGameBinding
+
 //import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
@@ -110,6 +113,13 @@ class GameFragment : Fragment() {
         binding.game = this
 
         // variables to get access to popUp
+
+        val btnSimpleDialog = binding.testPopup
+        binding.submitButton.setOnClickListener { view: View ->
+            val dialogFragment = DialogFragment()
+            dialogFragment.show(fragmentManager, "simple dialog")
+        }
+
 
 
         // Set the onClickListener for the submitButton

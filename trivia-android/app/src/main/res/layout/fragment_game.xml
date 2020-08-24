@@ -36,6 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <Button
+                android:id="@+id/testPopup"
+                android:layout_width="225dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/f_consolas"
+                android:padding="10sp"
+                android:text="testPopup"
+                android:textSize="@dimen/button_submit_text_size"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
             <FrameLayout
                 android:id="@+id/framePopup"
                 android:layout_width="match_parent"
@@ -153,7 +164,6 @@
                 android:id="@+id/heartsLevel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{game.heartCountLevelString}"
                 android:textSize="@dimen/general_text_size"
                 android:text="@{game.heartCountLevelString + `/9`}"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
@@ -167,7 +177,6 @@
                 android:id="@+id/heartsTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{game.heartCountTotalString}"
                 android:textSize="@dimen/general_text_size"
                 android:text="@{game.heartCountTotalString + `/27`}"
                 app:layout_constraintBottom_toTopOf="@+id/questionText"
@@ -176,7 +185,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.775" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
