@@ -5,7 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-@Database(entities = [LevelScore::class], version = 1, exportSchema = false)
+@Database(entities = [LevelScore::class, TotalScore::class], version = 1, exportSchema = false)
 abstract class EscodeDB : RoomDatabase() {
 
     abstract val escodeDao: EscodeDao

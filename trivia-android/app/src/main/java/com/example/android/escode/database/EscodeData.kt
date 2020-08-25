@@ -15,3 +15,15 @@ data class LevelScore (
         @ColumnInfo(name = "score")
         var lvlScore: Int
 )
+
+@Entity(tableName = "total_scores_table")
+data class TotalScore (
+        @PrimaryKey(autoGenerate = true)
+        var ttlScoreId: Long = 0L,
+
+        @ColumnInfo(name = "level")
+        var ttlIndex: Int,
+
+        @ColumnInfo(name = "score")
+        var ttlScore: Int
+)
