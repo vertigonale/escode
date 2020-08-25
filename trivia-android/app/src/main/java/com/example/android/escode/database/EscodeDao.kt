@@ -13,6 +13,6 @@ interface EscodeDao {
     @Update
     fun update(score: LevelScore)
 
-    @Query("SELECT * FROM level_scores_table")
-    fun getLevelScores()
+//    @Query("SELECT * FROM level_scores_table")
+//    fun getLevelScores()
 }
