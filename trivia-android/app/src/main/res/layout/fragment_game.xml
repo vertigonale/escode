@@ -24,6 +24,9 @@
         <variable
             name="game"
             type="com.example.android.escode.game.GameFragment" />
+        <variable
+            name="gameViewModel"
+            type="com.example.android.escode.game.GameViewModel" />
     </data>
 
     <ScrollView
