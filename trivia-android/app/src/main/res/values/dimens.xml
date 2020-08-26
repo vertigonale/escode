@@ -30,6 +30,7 @@
     <dimen name="button_general_text_size">25sp</dimen>
     <dimen name="button_submit_text_size">25sp</dimen>
     <dimen name="button_title_text_size">18sp</dimen>
-    <dimen name="pop_marginBottom">20sp</dimen>
+    <dimen name="pop_margin">20sp</dimen>
+    <dimen name="pop_marginButtom">8sp</dimen>
 
 </resources>

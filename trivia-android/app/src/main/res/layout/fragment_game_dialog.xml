@@ -16,8 +16,11 @@
             style="@style/stylePopTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pop_margin"
+            android:layout_marginTop="@dimen/pop_margin"
+            android:layout_marginEnd="@dimen/pop_margin"
+            android:layout_marginBottom="@dimen/pop_marginButtom"
             android:text="@string/popTitle_level"
-            android:layout_marginBottom="@dimen/pop_marginBottom"
             app:layout_constraintBottom_toTopOf="@+id/popText"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -28,14 +31,17 @@
             style="@style/stylePopText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pop_margin"
+            android:layout_marginTop="@dimen/pop_marginButtom"
+            android:layout_marginEnd="@dimen/pop_margin"
+            android:layout_marginBottom="@dimen/pop_margin"
             android:fontFamily="@font/f_consolas"
+            android:gravity="center"
             android:text="@string/popText_level"
-            android:layout_marginBottom="@dimen/pop_marginBottom"
+            app:layout_constraintBottom_toTopOf="@id/pop_btn2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/popTitle"
-            app:layout_constraintBottom_toTopOf="@id/pop_btn2"
-            tools:layout_editor_absoluteY="61dp" />
+            app:layout_constraintTop_toBottomOf="@id/popTitle" />
 
 <!--        <fragment-->
 <!--            android:id="@+id/scoreboard_mini"-->
@@ -50,7 +56,10 @@
             android:id="@+id/pop_btn3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/pop_marginBottom"
+            android:layout_marginTop="@dimen/pop_marginButtom"
+            android:layout_marginLeft="@dimen/pop_margin"
+            android:layout_marginRight="@dimen/pop_margin"
+            android:layout_marginBottom="@dimen/pop_margin"
             android:background="@drawable/a_btn_enabled"
             android:contentDescription="@+id/pop_btn3"
             android:fontFamily="@font/codefont"
@@ -65,7 +74,10 @@
             android:id="@+id/pop_btn1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/pop_marginBottom"
+            android:layout_marginTop="@dimen/pop_marginButtom"
+            android:layout_marginLeft="@dimen/pop_margin"
+            android:layout_marginRight="@dimen/pop_margin"
+            android:layout_marginBottom="@dimen/pop_margin"
             android:background="@drawable/a_btn_enabled"
             android:contentDescription="@+id/pop_btn1"
             android:fontFamily="@font/codefont"
@@ -80,13 +92,15 @@
             android:id="@+id/pop_btn2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/pop_margin"
+            android:layout_marginTop="@dimen/pop_margin"
+            android:layout_marginEnd="@dimen/pop_margin"
             android:fontFamily="@font/codefont"
             android:text="@string/popBtn_scores"
             android:textSize="@dimen/button_general_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/popText"
-            android:layout_margin="@dimen/pop_marginBottom"/>
+            app:layout_constraintTop_toBottomOf="@+id/popText" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
