@@ -16,15 +16,11 @@
 
 package com.example.android.escode.game
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.RadioButton
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -116,58 +112,63 @@ class GameFragment : Fragment() {
         // Bind this fragment class to the layout
         binding.game = this
 
+        val radioGroup = binding.questionRadioGroup
 
-        // variables to get access to popUp
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
-            val radioGroup = binding.questionRadioGroup
-//            val btn0 = btn0
-//            val btn1 = btn1
-//            val btn2 = binding.btn2
-//            val btn3 = binding.btn3
 
-            val checkedId = radioGroup.checkedRadioButtonId
+
+
+            var checkedId = -1
+            checkedId = radioGroup.checkedRadioButtonId
+            var isChecked = diyIsChecked()
+            // diyIsChecked()
 
             lateinit var selectedBtn: RadioButton
             // Do nothing if nothing is checked (id == -1)
-            if (-1 != checkedId) {
+            if (-1 != checkedId && isChecked) {
                 var answerIndex = 0
                 when (checkedId) {
+                    R.id.btn0 -> {answerIndex = 0;
+                        selectedBtn = btn0}
                     R.id.btn1 -> {answerIndex = 1;
-                                  selectedBtn = btn1}
+                        selectedBtn = btn1}
                     R.id.btn2 -> {answerIndex = 2;
-                                  selectedBtn = btn2}
+                        selectedBtn = btn2}
                     R.id.btn3 -> {answerIndex = 3;
-                                  selectedBtn = btn3}
+                        selectedBtn = btn3}
                 }
-
 
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
+                    Toast.makeText(this.context, R.string.fb_noChoice, Toast.LENGTH_SHORT).show()
+                    radioGroup.clearCheck()
                     advanceToNextQuestion()
-                    enableBtnS(btn1, btn2, btn3)
+                    enableAllBtns()
                     binding.invalidateAll()
 
-                    } else {
-
-                    Toast.makeText(this.context, R.string.fb_txt, Toast.LENGTH_SHORT).show();
+                } else {
 
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
                     if (heartCountPuzzle > 0) {
                         resetQuestion()
                         disableSelectedBtn(selectedBtn)
+                        radioGroup.clearCheck()
                         binding.invalidateAll()
+                        Toast.makeText(this.context, R.string.fb_wrong, Toast.LENGTH_SHORT).show()
                     } else {
                         advanceToNextQuestion()
-                        enableBtnS(btn1, btn2, btn3)
-//                      showPopup()
+                        enableAllBtns()
                         binding.invalidateAll()
                     }
                 }
+            } else {
+                Toast.makeText(this.context, R.string.fb_noChoice, Toast.LENGTH_SHORT).show()
             }
         }
+
 
         // in case we need it
 /*        binding.btnMyDialog.setOnClickListener { view: View ->
@@ -234,7 +235,7 @@ class GameFragment : Fragment() {
             if (levelIndex < 2) {
                 levelIndex++
                 heartCountLevel = 0
-                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                //view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
                 showPopup()
 //                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
@@ -245,18 +246,22 @@ class GameFragment : Fragment() {
         }
     }
 
-    fun enableBtnS (b0: RadioButton, b1: RadioButton, b2: RadioButton, b3: RadioButton){
-        b0.isChecked = false
-        b0.isEnabled = true
-        b1.isEnabled = true
-        b2.isEnabled = true
-        b3.isEnabled = true
+    fun enableAllBtns (){
+//        btn0.isChecked = false
+        btn0.isEnabled = true
+        btn1.isEnabled = true
+        btn2.isEnabled = true
+        btn3.isEnabled = true
     }
 
     // disables the selected radio button & enables them again for the next level
     fun disableSelectedBtn (selectedBtn: RadioButton){
-        selectedBtn.isEnabled = false
+
+        if (selectedBtn != btn0){
+            selectedBtn.isEnabled = false
+        }
         selectedBtn.isChecked = false
+
     }
 
     private fun heartCountToString() {
@@ -265,14 +270,28 @@ class GameFragment : Fragment() {
         heartCountTotalString = heartCountTotal.toString()
     }
 
+    fun diyIsChecked (): Boolean {
+
+        // State of the button, checked or not
+        var chbtn0: Boolean = btn0.isChecked()
+        var chbtn1: Boolean = btn1.isChecked()
+        var chbtn2: Boolean = btn2.isChecked()
+        var chbtn3: Boolean = btn3.isChecked()
+
+        when(chbtn0 || chbtn1 || chbtn2 || chbtn3){
+            true -> return true
+            false -> return false
+        }
+
+    }
 
 
     fun showPopup (){
-        submitButton.setOnClickListener { view: View ->
+
             val dialogFragment = GameDialogFragment()
 
             dialogFragment.show(fragmentManager, "game dialog")
-        }
+
     }
 
 

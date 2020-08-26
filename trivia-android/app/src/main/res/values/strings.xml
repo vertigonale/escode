@@ -46,7 +46,13 @@
     <string name="popBtn_scores">Scoreboard</string>
     <string name="popBtn_home">Home</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="fb_txt">Wrong! Please try again</string>
+
+
+    <!-- Toast Messages for Feedback -->
+    <string name="fb_wrong">Wrong! Please try again</string>
+    <string name="fb_noChoice">Please choose an answer!</string>
+    <string name="fb_correct">Correct!</string>
+
 </resources>
