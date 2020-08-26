@@ -235,14 +235,19 @@ class GameFragment : Fragment() {
                 levelIndex++
                 heartCountLevel = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                showPopup()
+//                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
+
                 levelIndex = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
             }
         }
     }
 
-    fun enableBtnS (b1: RadioButton, b2: RadioButton, b3: RadioButton){
+    fun enableBtnS (b0: RadioButton, b1: RadioButton, b2: RadioButton, b3: RadioButton){
+        b0.isChecked = false
+        b0.isEnabled = true
         b1.isEnabled = true
         b2.isEnabled = true
         b3.isEnabled = true
