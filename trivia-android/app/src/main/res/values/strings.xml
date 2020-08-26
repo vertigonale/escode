@@ -42,4 +42,11 @@
 
     <string name="popTitle_level">Congratulation!</string>
     <string name="popText_level">You got %1$d/%2$d Questions correct!</string>
+    <string name="popBtn_next">Next</string>
+    <string name="popBtn_scores">Scoreboard</string>
+    <string name="popBtn_home">Home</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="toastMsg">Wrong! Please try again</string>
 </resources>

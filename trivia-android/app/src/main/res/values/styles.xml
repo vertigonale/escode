@@ -34,4 +34,14 @@
         <item name="colorAccent">@color/lightBlack</item> <!-- when checked -->
         <item name="android:textColorSecondary">@android:color/white</item> <!-- when unchecked -->
     </style>
+
+    <style name="stylePopTitle">
+        <item name="android:textSize">@dimen/button_title_text_size</item>
+        <item name="android:textStyle">bold</item>
+        <item name="fontFamily">@font/f_consolas</item>
+    </style>
+
+    <style name="stylePopBtn"></style>
+
+    <style name="stylePopText"></style>
 </resources>
