@@ -8,64 +8,85 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/popup">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/btn_con"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
-                android:fontFamily="@font/codefont"
-                android:textSize="@dimen/button_general_text_size"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@id/button2"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
-                android:fontFamily="@font/codefont"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/button3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        android:background="@color/popup"
+        android:padding="10sp">
 
         <TextView
             android:id="@+id/popTitle"
+            style="@style/stylePopTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/f_consolas"
             android:text="@string/popTitle_level"
-            app:layout_constraintBottom_toTopOf="@+id/btn_con"
+            android:layout_marginBottom="@dimen/pop_marginBottom"
+            app:layout_constraintBottom_toTopOf="@+id/popText"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.174" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/popText"
+            style="@style/stylePopText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/f_consolas"
             android:text="@string/popText_level"
-            app:layout_constraintBottom_toTopOf="@+id/btn_con"
+            android:layout_marginBottom="@dimen/pop_marginBottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.578" />
+            app:layout_constraintTop_toBottomOf="@id/popTitle"
+            app:layout_constraintBottom_toTopOf="@id/pop_btn2"
+            tools:layout_editor_absoluteY="61dp" />
+
+<!--        <fragment-->
+<!--            android:id="@+id/scoreboard_mini"-->
+<!--            android:name="com.example.android.escode.game.ScoreboardFragment_mini"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:layout_constraintEnd_toEndOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/popText" />-->
+
+        <ImageButton
+            android:id="@+id/pop_btn3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/pop_marginBottom"
+            android:background="@drawable/a_btn_enabled"
+            android:contentDescription="@+id/pop_btn3"
+            android:fontFamily="@font/codefont"
+            android:text="@string/popBtn_next"
+            android:textSize="@dimen/button_general_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/pop_btn2"
+            app:layout_constraintTop_toBottomOf="@id/pop_btn2"
+            app:srcCompat="@drawable/a_arrow" />
+
+        <ImageButton
+            android:id="@+id/pop_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/pop_marginBottom"
+            android:background="@drawable/a_btn_enabled"
+            android:contentDescription="@+id/pop_btn1"
+            android:fontFamily="@font/codefont"
+            android:text="@string/popBtn_home"
+            android:textSize="@dimen/button_general_text_size"
+            app:layout_constraintEnd_toStartOf="@+id/pop_btn2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pop_btn2"
+            app:srcCompat="@drawable/ic_home_white" />
+
+        <Button
+            android:id="@+id/pop_btn2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/codefont"
+            android:text="@string/popBtn_scores"
+            android:textSize="@dimen/button_general_text_size"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/popText"
+            android:layout_margin="@dimen/pop_marginBottom"/>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

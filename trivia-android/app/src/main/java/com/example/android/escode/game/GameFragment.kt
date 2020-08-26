@@ -16,12 +16,16 @@
 
 package com.example.android.escode.game
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RadioButton
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -97,6 +101,8 @@ class GameFragment : Fragment() {
     lateinit var heartCountLevelString: String
     lateinit var heartCountTotalString: String
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
@@ -110,23 +116,18 @@ class GameFragment : Fragment() {
         // Bind this fragment class to the layout
         binding.game = this
 
-        // variables to get access to popUp
 
-//        val btnSimpleDialog = binding.testPopup
-//        binding.submitButton.setOnClickListener { view: View ->
-//            val dialogFragment = DialogFragment()
-//            dialogFragment.show(fragmentManager, "simple dialog")
-//        }
+        // variables to get access to popUp
 
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
-//            val radioGroup = questionRadioGroup
-            //val btn0 = btn0
+            val radioGroup = binding.questionRadioGroup
+//            val btn0 = btn0
 //            val btn1 = btn1
-//            val btn2 = btn2
-//            val btn3 = btn3
+//            val btn2 = binding.btn2
+//            val btn3 = binding.btn3
 
-            val checkedId = questionRadioGroup.checkedRadioButtonId
+            val checkedId = radioGroup.checkedRadioButtonId
 
             lateinit var selectedBtn: RadioButton
             // Do nothing if nothing is checked (id == -1)
@@ -141,6 +142,7 @@ class GameFragment : Fragment() {
                                   selectedBtn = btn3}
                 }
 
+
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
@@ -149,6 +151,9 @@ class GameFragment : Fragment() {
                     binding.invalidateAll()
 
                     } else {
+
+                    Toast.makeText(this.context, R.string.fb_txt, Toast.LENGTH_SHORT).show();
+
                     // Wrong answer! A wrong answer sends us to beginning of puzzle.
                     if (heartCountPuzzle > 0) {
                         resetQuestion()
@@ -202,10 +207,7 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions, levelIndex + 1, numLevels)
     }
 
-    // disables the selected radio button & enables them again for the next level
-    fun disableSelectedBtn (selectedBtn: Button){
-        selectedBtn.isEnabled = false   // mögliche probleme? --> lifecycle? // problem zone!
-    }
+
 
     private fun resetQuestion() {
         setQuestion()
@@ -240,10 +242,16 @@ class GameFragment : Fragment() {
         }
     }
 
-    fun enableBtnS (b1: Button, b2: Button, b3: Button){
+    fun enableBtnS (b1: RadioButton, b2: RadioButton, b3: RadioButton){
         b1.isEnabled = true
         b2.isEnabled = true
         b3.isEnabled = true
+    }
+
+    // disables the selected radio button & enables them again for the next level
+    fun disableSelectedBtn (selectedBtn: RadioButton){
+        selectedBtn.isEnabled = false
+        selectedBtn.isChecked = false
     }
 
     private fun heartCountToString() {
@@ -253,9 +261,13 @@ class GameFragment : Fragment() {
     }
 
 
+
     fun showPopup (){
+        submitButton.setOnClickListener { view: View ->
+            val dialogFragment = GameDialogFragment()
 
-
+            dialogFragment.show(fragmentManager, "game dialog")
+        }
     }
 
 

@@ -53,8 +53,8 @@
     <color name="skycrayola">#56CFE1</color>
     <color name="turqu">#64DFDF</color>
     <color name="aqua">#80FFDB</color>
-
-
+    <color name="diytoast_bg">#80959595</color>
+    <color name="diytoast_txt">#000000</color>
 
 
 </resources>
