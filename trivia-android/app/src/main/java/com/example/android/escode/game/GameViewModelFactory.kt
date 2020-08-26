@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.android.escode.database.EscodeDao
 
 class GameViewModelFactory (
+    private val levelKey: Long,
     private val dataSource: EscodeDao,
     private val application: Application) : ViewModelProvider.Factory {
 
@@ -14,7 +15,7 @@ class GameViewModelFactory (
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             // check if viewModel class is available, if yes, return instance of it
             if (modelClass.isAssignableFrom(GameViewModel::class.java)) {
-                return GameViewModel(dataSource, application) as T
+                return GameViewModel(levelKey, dataSource, application) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

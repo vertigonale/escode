@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "level_scores_table")
 data class LevelScore (
+        @ColumnInfo(name = "id")
         @PrimaryKey(autoGenerate = true)
         var lvlScoreId: Long = 0L,
 
@@ -18,6 +19,7 @@ data class LevelScore (
 
 @Entity(tableName = "total_scores_table")
 data class TotalScore (
+        @ColumnInfo(name = "id")
         @PrimaryKey(autoGenerate = true)
         var ttlScoreId: Long = 0L,
 

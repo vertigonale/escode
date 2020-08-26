@@ -23,6 +23,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.RadioButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.Person.fromBundle
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
@@ -105,26 +106,28 @@ class GameFragment : Fragment() {
         // reference to application context
         val application = requireNotNull(this.activity).application
 
+//        val arguments = GameFragmentArgs.fromBundle(arguments!!)
+
         // define datasource
         val dataSource = EscodeDB.getInstance(application).escodeDao
 
         // create instance of viewModelFactory
-        val viewModelFactory = GameViewModelFactory(dataSource, application)
+//        val viewModelFactory = GameViewModelFactory(arguments.levelKey, dataSource, application)
+//
+//        // reference to viewModel
+//        val gameViewModel =
+//                ViewModelProviders.of(
+//                        this, viewModelFactory).get(GameViewModel::class.java)
 
-        // reference to viewModel
-        val gameViewModel =
-                ViewModelProviders.of(
-                        this, viewModelFactory).get(GameViewModel::class.java)
-
-        // set variable in layout (which we access through the binding object) to viewModel
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
 
-        binding.setLifecycleOwner(this)
+        // set variable in layout (which we access through the binding object) to viewModel
+//        binding.gameViewModel = gameViewModel
 
-        binding.gameViewModel = gameViewModel
+        binding.setLifecycleOwner(this)
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()

@@ -8,16 +8,19 @@ import androidx.room.Update
 @Dao
 interface EscodeDao {
     @Insert
-    fun insert(score: LevelScore)
+    fun insertLevelScore(score: LevelScore)
 
     @Update
-    fun update(score: LevelScore)
+    fun updateLevelScore(score: LevelScore)
 
     @Insert
-    fun insert(score: TotalScore)
+    fun insertTotalScore(score: TotalScore)
 
     @Update
-    fun update(score: TotalScore)
+    fun updateTotalScore(score: TotalScore)
+
+    @Query("SELECT * FROM level_scores_table WHERE id = :key")
+    fun get(key: Long): LevelScore
 
     @Query(value = "SELECT * FROM level_scores_table")
     fun getLevelScores(): List<LevelScore>
