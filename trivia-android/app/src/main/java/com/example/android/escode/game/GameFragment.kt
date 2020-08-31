@@ -33,6 +33,9 @@ import kotlinx.android.synthetic.main.fragment_game.*
 //import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
+
+//    val levelHeartMutableList = mutableListOf<Int>()
+
     data class Question(
             val text: String,
             val answers: List<String>)
@@ -40,6 +43,15 @@ class GameFragment : Fragment() {
     data class Level(
             val nr: Int,
             val questions: List<Question>
+    )
+
+    data class HeartCountLevel(
+            var heartCountLevelIndex: Int,
+            var heartCountLevelCount: Int,
+            var heartCountTotalCount: Int
+    )
+
+    private var HeartCountMutableList: MutableList<HeartCountLevel> = mutableListOf(
     )
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
@@ -232,6 +244,8 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+            HeartCountMutableList.add(HeartCountLevel(levelIndex + 1, heartCountLevel, heartCountTotal))
+
             if (levelIndex < 2) {
                 levelIndex++
                 heartCountLevel = 0
@@ -239,7 +253,6 @@ class GameFragment : Fragment() {
                 showPopup()
 //                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
-
                 levelIndex = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
             }
