@@ -294,13 +294,15 @@ class GameFragment : Fragment() {
 
     fun showPopup (){
 
-        val dialogFragment = GameDialogFragment()
-        dialogFragment.setTargetFragment(this, 0)
-        val manager: FragmentManager? = fragmentManager
-        val ft: FragmentTransaction = manager!!.beginTransaction()
+//        val dialogFragment = GameDialogFragment()
+//        dialogFragment.setTargetFragment(this, 0)
+//        val manager: FragmentManager? = fragmentManager
+//        val ft: FragmentTransaction = manager!!.beginTransaction()
+//
+////        dialogFragment.setCancelable(false)
+//        dialogFragment.show(fragmentManager, "game dialog")
 
-        dialogFragment.setCancelable(false)
-        dialogFragment.show(fragmentManager, "game dialog")
+        // Todo set level index heart counts!
 
 
     }

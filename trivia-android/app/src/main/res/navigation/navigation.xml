@@ -20,6 +20,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_root"
     app:startDestination="@+id/titleFragment">
+
     <fragment
         android:id="@+id/titleFragment"
         android:name="com.example.android.escode.game.TitleFragment"
@@ -29,6 +30,7 @@
             android:id="@+id/action_titleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/gameFragment"
         android:name="com.example.android.escode.game.GameFragment"
@@ -41,16 +43,19 @@
             android:id="@+id/action_gameFragment_to_gameDialogFragment"
             app:destination="@id/gameDialogFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/rulesFragment"
         android:name="com.example.android.escode.game.RulesFragment"
         android:label="@string/title_trivia_rules"
         tools:layout="@layout/fragment_rules" />
+
     <fragment
         android:id="@+id/aboutFragment"
         android:name="com.example.android.escode.game.AboutFragment"
         android:label="@string/title_about_trivia"
         tools:layout="@layout/fragment_about" />
+
     <fragment
         android:id="@+id/gameDialogFragment"
         android:name="com.example.android.escode.game.GameDialogFragment"
@@ -66,6 +71,7 @@
             android:id="@+id/action_gameDialogFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/scoreboardFragment"
         android:name="com.example.android.escode.game.ScoreboardFragment"
