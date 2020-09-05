@@ -25,7 +25,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
+import com.example.android.escode.Communicator
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
@@ -34,7 +36,7 @@ import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
 
-//    val levelHeartMutableList = mutableListOf<Int>()
+    lateinit var comm: Communicator
 
     data class Question(
             val text: String,
@@ -45,14 +47,16 @@ class GameFragment : Fragment() {
             val questions: List<Question>
     )
 
-    data class HeartCountLevel(
+    data class HeartCountData(
             var heartCountLevelIndex: Int,
             var heartCountLevelCount: Int,
             var heartCountTotalCount: Int
     )
 
-    private var HeartCountMutableList: MutableList<HeartCountLevel> = mutableListOf(
+    private var HeartCountMutableList: MutableList<HeartCountData> = mutableListOf(
     )
+
+
 
     // The first answer is the correct one.  We randomize the answers before showing the text.
     // All questions must have four answers.  We'd want these to contain references to string
@@ -117,6 +121,8 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
+
+        comm = activity as Communicator
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
@@ -244,7 +250,9 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-            HeartCountMutableList.add(HeartCountLevel(levelIndex + 1, heartCountLevel, heartCountTotal))
+            HeartCountMutableList.add(HeartCountData(levelIndex + 1, heartCountLevel, heartCountTotal))
+            comm.passLevelIndex(levelIndex)
+            comm.passHeartLevelCount(heartCountLevel)
 
             if (levelIndex < 2) {
                 levelIndex++
@@ -253,6 +261,7 @@ class GameFragment : Fragment() {
                 showPopup()
 //                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             } else {
+                comm.passHeartTotalCount(heartCountTotal)
                 levelIndex = 0
                 view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
             }

@@ -27,7 +27,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.android.escode.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Communicator {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration : AppBarConfiguration
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,5 +51,17 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+    override fun passLevelIndex(levelIndex: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun passHeartLevelCount(heartLevel: Int) {
+        TODO("Not yet implemented")
+    }
+
+    override fun passHeartTotalCount(heartTotal: Int) {
+        TODO("Not yet implemented")
     }
 }
