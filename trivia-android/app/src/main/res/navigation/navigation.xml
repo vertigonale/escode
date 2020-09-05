@@ -35,11 +35,11 @@
         android:label="@string/android_trivia"
         tools:layout="@layout/fragment_game">
         <action
-            android:id="@+id/action_gameFragment_to_gameDialog"
-            app:destination="@id/gameDialogFragment" />
-        <action
             android:id="@+id/action_gameFragment_to_titleFragment"
             app:destination="@id/titleFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_gameDialogFragment"
+            app:destination="@id/gameDialogFragment" />
     </fragment>
     <fragment
         android:id="@+id/rulesFragment"
@@ -54,5 +54,24 @@
     <fragment
         android:id="@+id/gameDialogFragment"
         android:name="com.example.android.escode.game.GameDialogFragment"
-        android:label="GameDialog" />
+        android:label="fragment_game_dialog"
+        tools:layout="@layout/fragment_game_dialog" >
+        <action
+            android:id="@+id/action_gameDialogFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <action
+            android:id="@+id/action_gameDialogFragment_to_scoreboardFragment"
+            app:destination="@id/scoreboardFragment" />
+        <action
+            android:id="@+id/action_gameDialogFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/scoreboardFragment"
+        android:name="com.example.android.escode.game.ScoreboardFragment"
+        android:label="ScoreboardFragment" >
+        <action
+            android:id="@+id/action_scoreboardFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
 </navigation>

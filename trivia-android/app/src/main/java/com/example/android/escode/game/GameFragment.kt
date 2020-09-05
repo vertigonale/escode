@@ -16,6 +16,7 @@
 
 package com.example.android.escode.game
 
+import android.R.attr.fragment
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -25,10 +26,13 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
+
 
 //import kotlinx.android.synthetic.main.fragment_game.*
 
@@ -114,7 +118,9 @@ class GameFragment : Fragment() {
 
         val radioGroup = binding.questionRadioGroup
 
-
+        binding.testPopup.setOnClickListener { view: View ->
+            showPopup()
+        }
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
 
@@ -235,9 +241,9 @@ class GameFragment : Fragment() {
             if (levelIndex < 2) {
                 levelIndex++
                 heartCountLevel = 0
-                //view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
-                showPopup()
-//                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
+//                showPopup()
+
             } else {
 
                 levelIndex = 0
@@ -288,9 +294,14 @@ class GameFragment : Fragment() {
 
     fun showPopup (){
 
-            val dialogFragment = GameDialogFragment()
+        val dialogFragment = GameDialogFragment()
+        dialogFragment.setTargetFragment(this, 0)
+        val manager: FragmentManager? = fragmentManager
+        val ft: FragmentTransaction = manager!!.beginTransaction()
 
-            dialogFragment.show(fragmentManager, "game dialog")
+        dialogFragment.setCancelable(false)
+        dialogFragment.show(fragmentManager, "game dialog")
+
 
     }
 

@@ -9,19 +9,18 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
-import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameDialogBinding
 
 
-class GameDialogFragment : DialogFragment() {
+class TestGameDialogFragment : DialogFragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameDialogBinding>(
-                inflater, R.layout.fragment_game_dialog, container, false)
+                inflater, R.layout.test_fragment_game_dialog, container, false)
 
     // Variables
         // Texts...
@@ -34,9 +33,11 @@ class GameDialogFragment : DialogFragment() {
 
 
 
-//        btn_score.setOnClickListener(View.OnClickListener {
-//            view?.findNavController()?.navigate(GameFragmentDirections.action_gameDialogFragment_to_scoreboardFragment())
-//        })
+        btn_score.setOnClickListener(View.OnClickListener {
+            val scoreScreen = ScoreboardFragment()
+
+            scoreScreen
+        })
 
         return binding.root
     }
