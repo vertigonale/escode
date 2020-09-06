@@ -61,9 +61,9 @@ class MainActivity : AppCompatActivity(), Communicator {
 
         NavigationUI.setupWithNavController(binding.navView, navController)
 
-        val gameFrag = GameFragment()
-        supportFragmentManager.beginTransaction().replace(R.id.drawerLayout, gameFrag).commit()
-//
+//        val gameFrag = GameFragment()
+//        supportFragmentManager.beginTransaction().replace(R.id.drawerLayout, gameFrag).commit()
+
 //        val gameDialogFrag = GameDialogFragment()
 //        supportFragmentManager.beginTransaction().replace(R.id.drawerLayout, gameDialogFrag).commit()
     }
@@ -72,19 +72,19 @@ class MainActivity : AppCompatActivity(), Communicator {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
     }
-
+    val bundle = Bundle()
     override fun passLevelIndex(levelIndex: Int) {
-        val bundle = Bundle()
+
         bundle.putInt("indexLevelPass", levelIndex)
 
-        val transaction = this.supportFragmentManager.beginTransaction()
+//        val transaction = this.supportFragmentManager.beginTransaction()
         val scoreFrag = ScoreboardFragment()
         scoreFrag.arguments = bundle
 
-        transaction.replace(R.id.drawerLayout, scoreFrag)
-        transaction.addToBackStack(null)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.commit()
+//        transaction.replace(R.id.drawerLayout, scoreFrag)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//        transaction.commit()
     }
 
     override fun passHeartLevelCount(heartLevel: Int) {
@@ -95,10 +95,10 @@ class MainActivity : AppCompatActivity(), Communicator {
         val scoreFrag = ScoreboardFragment()
         scoreFrag.arguments = bundle
 
-        transaction.replace(R.id.drawerLayout, scoreFrag)
-        transaction.addToBackStack(null)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.commit()
+//        transaction.replace(R.id.drawerLayout, scoreFrag)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//        transaction.commit()
     }
 
     override fun passHeartTotalCount(heartTotal: Int) {
@@ -109,9 +109,9 @@ class MainActivity : AppCompatActivity(), Communicator {
         val scoreFrag = ScoreboardFragment()
         scoreFrag.arguments = bundle
 
-        transaction.replace(R.id.drawerLayout, scoreFrag)
-        transaction.addToBackStack(null)
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-        transaction.commit()
+//        transaction.replace(R.id.drawerLayout, scoreFrag)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//        transaction.commit()
     }
 }

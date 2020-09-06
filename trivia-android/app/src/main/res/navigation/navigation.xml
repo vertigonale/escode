@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_titleFragment_to_gameFragment"
             app:destination="@id/gameFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_scoreboardFragment"
+            app:destination="@id/scoreboardFragment" />
     </fragment>
     <fragment
         android:id="@+id/gameFragment"
@@ -55,4 +58,9 @@
         android:id="@+id/gameDialogFragment"
         android:name="com.example.android.escode.game.GameDialogFragment"
         android:label="GameDialog" />
+    <fragment
+        android:id="@+id/scoreboardFragment"
+        android:name="com.example.android.escode.game.ScoreboardFragment"
+        android:label="fragment_scoreboard"
+        tools:layout="@layout/fragment_scoreboard" />
 </navigation>

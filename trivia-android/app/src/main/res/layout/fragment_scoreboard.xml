@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.escode.game.ScoreboardFragment">
 
@@ -29,17 +28,17 @@
                 android:padding="18dip"
                 android:text="@{scoreboard.whichLevelString}"
                 android:textColor="#000"
-                android:textSize="12dp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/r1c2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="352dp"
+                android:layout_height="match_parent"
                 android:background="#FF0000"
                 android:padding="18dip"
                 android:text="@{scoreboard.whichLevelHeartCountString}"
                 android:textColor="#000"
-                android:textSize="14dp" />
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/r1c3"
@@ -49,7 +48,7 @@
                 android:padding="18dip"
                 android:text="@{scoreboard.whichTotalHeartCountString}"
                 android:textColor="#000"
-                android:textSize="14dp" />
+                android:textSize="24sp" />
 
         </TableRow>
 
@@ -65,7 +64,7 @@
                 android:layout_height="wrap_content"
                 android:background="#b0b0b0"
                 android:padding="18dip"
-                android:text="Text 1"
+                android:text="@{scoreboard.whichLevelString}"
                 android:textColor="#000"
                 android:textSize="12dp" />
 
@@ -75,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:background="#FF0000"
                 android:padding="18dip"
-                android:text="Text 2"
+                android:text="@{scoreboard.whichLevelHeartCountString}"
                 android:textColor="#000"
                 android:textSize="14dp" />
 
@@ -87,7 +86,7 @@
                 android:padding="18dip"
                 android:text="@{scoreboard.whichTotalHeartCountString}"
                 android:textColor="#000"
-                android:textSize="14dp" />
+                android:textSize="24sp" />
 
         </TableRow>
 

@@ -29,7 +29,7 @@ class ScoreboardFragment : Fragment() {
         whichLevelHeartCount = arguments?.getInt("levelHeartPass")
         whichTotalHeartCount = arguments?.getInt("totalHeartPass")
 
-        whichLevelString = whichLevel.toString()
+        whichLevelString = "stringy string"/*whichLevel.toString()*/
         whichLevelHeartCountString = whichLevelHeartCount.toString()
         whichTotalHeartCountString = whichTotalHeartCount.toString()
 
