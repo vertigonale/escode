@@ -50,14 +50,14 @@
 
             <TextView
                 android:id="@+id/questionText"
-                android:background="@drawable/a_btn_game_q"
                 android:layout_width="347dp"
-                android:layout_height="77dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/a_btn_game_q"
                 android:fontFamily="@font/f_consolas"
                 android:text="@{game.currentQuestion.text}"
+                android:textColor="@color/lightBlack"
                 android:textSize="@dimen/question_text_size"
                 android:textStyle="bold"
-                android:textColor="@color/lightBlack"
                 android:typeface="normal"
                 app:layout_constraintBottom_toTopOf="@id/questionRadioGroup"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -82,14 +82,14 @@
 
                 <RadioButton
                     android:id="@+id/btn0"
-                    android:fontFamily="@font/f_consolas"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/question_vertical_margin"
+                    android:background="@drawable/a_btn_game"
+                    android:fontFamily="@font/f_consolas"
                     android:text="@{game.answers[0]}"
                     android:textSize="@dimen/answer_text_size"
-                    android:background="@drawable/a_btn_game"
-                    android:theme="@style/RadioButtonStyle"/>
+                    android:theme="@style/RadioButtonStyle" />
 
                 <RadioButton
                     android:id="@+id/btn1"

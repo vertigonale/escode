@@ -52,30 +52,57 @@ class GameFragment : Fragment() {
     // All questions must have four answers.  We'd want these to contain references to string
     // resources so we could internationalize. (or better yet, not define the questions in code...)
     private val questionsL1: MutableList<Question> = mutableListOf(
-            Question(text = "Frage 1",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 2",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 3",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+            Question(text = "What's the origin of the word \"Kotlin\"?",
+                    answers = listOf("name of a little island in Russia",
+                            "surname of the Developer of Kotlin",
+                            "THE favorite chocolate brand of android programmers",
+                            "anagram of \"link to\" (link to android)")),
+            Question(text = "Which declaration throws an exception in Kotlin?",
+                    answers = listOf("var var1 : String = 5",
+                            "val var2 = 3",
+                            "lateinit var3 : String",
+                            "var var4 = true")),
+            Question(text = "What is the keyword to declare a function in Kotlin?",
+                    answers = listOf("fun",
+                            "do",
+                            "def",
+                            "all of them"))
     )
 
     private val questionsL2: MutableList<Question> = mutableListOf(
-            Question(text = "Frage 4",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 5",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 6",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+            Question(text = "Which declaration is written correctly in Kotlin?",
+                    answers = listOf("var var1 : String = \"HAHAHA\"",
+                            "lateinit var2 : Int",
+                            "val var3 = 3; var3 = 5",
+                            "var var4 : Long")),
+            Question(text = "What is the equivalent of \"System.out.println()\" in Kotlin?",
+                    answers = listOf("println()",
+                            "out()",
+                            "show()",
+                            "printout")),
+            Question(text = "What is the equivalent of the switch-statement in Kotlin?",
+                    answers = listOf("when",
+                            "wheel",
+                            "whenever",
+                            "pick"))
     )
 
     private val questionsL3: MutableList<Question> = mutableListOf(
-            Question(text = "Frage 7",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 8",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3")),
-            Question(text = "Frage 9",
-                    answers = listOf("richtig", "falsch1", "falsch2", "falsch3"))
+            Question(text = "In Java, to hold data in a class and NOTHING ELSE, we need to define constructors, variables to store data, getter & setter methods, etc. Whereas in Kotlin, it is a bit different \nWhat is necessary to get the same result in Kotlin?",
+                    answers = listOf("declare a class with keyword \"data\"",
+                            "create getter/setter methods",
+                            "define universal constructor for different kind of data",
+                            "give data a good long hug")),
+            Question(text = "What is possible with \"if\" in Kotlin?",
+                    answers = listOf("use it as an expression & assign its value to a variable",
+                            "end an if-statement with \"fi\"",
+                            "extend \"if\" with \"otherwise\"",
+                            "if() is TRUE by default")),
+            Question(text = "Which symbol performs a safe call in Kotlin? (calling a method or accessing a property if the receiver is non-null)",
+                    answers = listOf("?.",
+                            "->",
+                            ":",
+                            "$"))
     )
 
     private val levels : MutableList<Level> = mutableListOf(
@@ -111,6 +138,7 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
+
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
@@ -242,6 +270,7 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+
             if (levelIndex < 2) {
 
                 levelIndex++

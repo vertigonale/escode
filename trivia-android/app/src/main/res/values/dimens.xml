@@ -25,8 +25,8 @@
     <dimen name="game_over_height">350dp</dimen>
 
     <dimen name="general_text_size">18sp</dimen>
-    <dimen name="question_text_size">30sp</dimen>
-    <dimen name="answer_text_size">18sp</dimen>
+    <dimen name="question_text_size">20sp</dimen>
+    <dimen name="answer_text_size">16sp</dimen>
     <dimen name="button_general_text_size">25sp</dimen>
     <dimen name="button_submit_text_size">25sp</dimen>
     <dimen name="button_title_text_size">18sp</dimen>
