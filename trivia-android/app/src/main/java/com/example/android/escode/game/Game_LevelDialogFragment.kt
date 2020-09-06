@@ -19,6 +19,14 @@ import com.example.android.escode.databinding.FragmentGameLevelDialogBinding
 //class GameDialogFragment : DialogFragment() {
 class Game_LevelDialogFragment : Fragment() {
 
+    var whichLevel: Int? = 0
+    var whichLevelHeartCount: Int? = 0
+    var whichTotalHeartCount: Int? = 0
+
+    lateinit var whichLevelString: String
+    lateinit var whichLevelHeartCountString: String
+    lateinit var whichTotalHeartCountString: String
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
@@ -33,6 +41,14 @@ class Game_LevelDialogFragment : Fragment() {
         val btn_home: ImageButton = binding.popBtn1
         val btn_score: Button = binding.popBtn2
         val btn_next: ImageButton = binding.popBtn3
+
+        whichLevel = arguments?.getInt("indexLevelPass")
+        whichLevelHeartCount = arguments?.getInt("levelHeartPass")
+        whichTotalHeartCount = arguments?.getInt("totalHeartPass")
+
+        whichLevelString = "stringy string"/*whichLevel.toString()*/
+        whichLevelHeartCountString = whichLevelHeartCount.toString()
+        whichTotalHeartCountString = whichTotalHeartCount.toString()
 
 
 

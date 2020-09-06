@@ -5,6 +5,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.android.escode.game.Game_LevelDialogFragment">
 
+    <data>
+        <variable
+            name="gameLevelDialog"
+            type="com.example.android.escode.game.Game_LevelDialogFragment" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,7 +43,7 @@
             android:layout_marginBottom="@dimen/pop_margin"
             android:fontFamily="@font/f_consolas"
             android:gravity="center"
-            android:text="@string/popText_level"
+            android:text="@{`You gained ` + gameLevelDialog.whichLevelHeartCountString + ` hearts!`}"
             app:layout_constraintBottom_toTopOf="@id/pop_btn2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

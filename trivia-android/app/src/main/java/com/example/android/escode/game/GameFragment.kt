@@ -30,6 +30,7 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.example.android.escode.Communicator
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
@@ -39,6 +40,9 @@ import com.example.android.escode.EscodeViewModel
 //import kotlinx.android.synthetic.main.fragment_game.*
 
 class GameFragment : Fragment() {
+
+    lateinit var comm: Communicator
+
     data class Question(
             val text: String,
             val answers: List<String>)
@@ -111,6 +115,8 @@ class GameFragment : Fragment() {
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameBinding>(
                 inflater, R.layout.fragment_game, container, false)
+
+        comm = activity as Communicator
 
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
@@ -242,6 +248,9 @@ class GameFragment : Fragment() {
         else {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
+//            HeartCountMutableList.add(HeartCountData(levelIndex + 1, heartCountLevel, heartCountTotal))
+//            comm.passLevelIndex(levelIndex)
+            comm.passHeartLevelCount(heartCountLevel)
             if (levelIndex < 2) {
 
                 levelIndex++
@@ -249,7 +258,7 @@ class GameFragment : Fragment() {
                 showLevelPopup()
 
             } else {
-
+                comm.passHeartTotalCount(heartCountTotal)
                 levelIndex = 0
                 showEndPopup()
             }

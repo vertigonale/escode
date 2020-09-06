@@ -22,6 +22,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
 import androidx.navigation.findNavController
@@ -30,9 +31,10 @@ import androidx.navigation.ui.NavigationUI
 import com.example.android.escode.databinding.ActivityMainBinding
 import com.example.android.escode.game.Game_EndDialogFragment
 import com.example.android.escode.game.Game_LevelDialogFragment
+import com.example.android.escode.game.ScoreboardFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), Communicator {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration : AppBarConfiguration
 
@@ -86,5 +88,49 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+
+
+    override fun passLevelIndex(levelIndex: Int) {
+        val bundle = Bundle()
+        bundle.putInt("indexLevelPass", levelIndex)
+
+        val transaction = this.supportFragmentManager.beginTransaction()
+        val gameLevelDiaFrag = Game_LevelDialogFragment()
+        gameLevelDiaFrag.arguments = bundle
+
+        transaction.replace(R.id.drawerLayout, gameLevelDiaFrag)
+        transaction.addToBackStack(null)
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+        transaction.commit()
+    }
+
+    override fun passHeartLevelCount(heartLevel: Int) {
+        val bundle = Bundle()
+        bundle.putInt("levelHeartPass", heartLevel)
+
+        val transaction = this.supportFragmentManager.beginTransaction()
+        val gameLevelDiaFrag = Game_LevelDialogFragment()
+        gameLevelDiaFrag.arguments = bundle
+
+//        transaction.replace(R.id.drawerLayout, gameLevelDiaFrag)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_CLOSE)
+//        transaction.commit()
+    }
+
+    override fun passHeartTotalCount(heartTotal: Int) {
+        val bundle = Bundle()
+        bundle.putInt("totalHeartPass", heartTotal)
+
+//        val transaction = this.supportFragmentManager.beginTransaction()
+        val gameLevelDiaFrag = Game_LevelDialogFragment()
+        gameLevelDiaFrag.arguments = bundle
+
+//        transaction.replace(R.id.drawerLayout, scoreFrag)
+//        transaction.addToBackStack(null)
+//        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+//        transaction.commit()
     }
 }
