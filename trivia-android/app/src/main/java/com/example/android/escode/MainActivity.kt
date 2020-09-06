@@ -16,9 +16,11 @@
 
 package com.example.android.escode
 
-import androidx.databinding.DataBindingUtil
 import android.os.Bundle
+import android.os.Handler
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -26,6 +28,9 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.android.escode.databinding.ActivityMainBinding
+import com.example.android.escode.game.Game_EndDialogFragment
+import com.example.android.escode.game.Game_LevelDialogFragment
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -35,7 +40,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
         drawerLayout = binding.drawerLayout
-
 
 
 //        val destination = GameDialogNavigator(myNavHostFragment.childFragmentManager)
@@ -60,6 +64,24 @@ class MainActivity : AppCompatActivity() {
         }
         NavigationUI.setupWithNavController(binding.navView, navController)
     }
+
+    lateinit var levelPop: Game_LevelDialogFragment
+    lateinit var endPop: Game_EndDialogFragment
+
+
+//    var doubleBackToExitPressedOnce = false
+
+    override fun onBackPressed() {
+//        if (doubleBackToExitPressedOnce) {
+//            val navController = this.findNavController((R.id.myNavHostFragment))
+//            navController.navigate(R.id.titleFragment)
+//            return
+//        }
+//        doubleBackToExitPressedOnce = true
+//        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show()
+//        Handler().postDelayed(Runnable { doubleBackToExitPressedOnce = false }, 2000)
+    }
+
 
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)

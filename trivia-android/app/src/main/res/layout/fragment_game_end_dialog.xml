@@ -3,7 +3,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.android.escode.game.Game_LevelDialogFragment">
+    tools:context="com.example.android.escode.game.Game_EndDialogFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -43,14 +43,14 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/popTitle" />
 
-<!--        <fragment-->
-<!--            android:id="@+id/scoreboard_mini"-->
-<!--            android:name="com.example.android.escode.game.ScoreboardFragment_mini"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_constraintEnd_toEndOf="parent"-->
-<!--            app:layout_constraintStart_toStartOf="parent"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/popText" />-->
+        <!--        <fragment-->
+        <!--            android:id="@+id/scoreboard_mini"-->
+        <!--            android:name="com.example.android.escode.game.ScoreboardFragment_mini"-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent"-->
+        <!--            app:layout_constraintTop_toBottomOf="@+id/popText" />-->
 
         <ImageButton
             android:id="@+id/pop_btn3"
@@ -63,12 +63,12 @@
             android:background="@drawable/a_btn_enabled"
             android:contentDescription="@+id/pop_btn3"
             android:fontFamily="@font/codefont"
-            android:text="@string/popBtn_next"
+            android:text="@string/popBtn_again"
             android:textSize="@dimen/button_general_text_size"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/pop_btn2"
             app:layout_constraintTop_toBottomOf="@id/pop_btn2"
-            app:srcCompat="@drawable/a_arrow" />
+            app:srcCompat="@drawable/a_retry" />
 
         <ImageButton
             android:id="@+id/pop_btn1"

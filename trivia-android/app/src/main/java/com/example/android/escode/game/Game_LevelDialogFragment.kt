@@ -1,26 +1,29 @@
 package com.example.android.escode.game
 
-import android.content.Context
+
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.findNavController
 import com.example.android.escode.R
-import com.example.android.escode.databinding.FragmentGameDialogBinding
+import com.example.android.escode.databinding.FragmentGameLevelDialogBinding
 
 
-class TestGameDialogFragment : DialogFragment() {
-
+//class GameDialogFragment : DialogFragment() {
+class Game_LevelDialogFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
-        val binding = DataBindingUtil.inflate<FragmentGameDialogBinding>(
-                inflater, R.layout.test_fragment_game_dialog, container, false)
+        val binding = DataBindingUtil.inflate<FragmentGameLevelDialogBinding>(
+                inflater, R.layout.fragment_game_level_dialog, container, false)
 
     // Variables
         // Texts...
@@ -34,15 +37,29 @@ class TestGameDialogFragment : DialogFragment() {
 
 
         btn_score.setOnClickListener(View.OnClickListener {
-            val scoreScreen = ScoreboardFragment()
-
-            scoreScreen
+            view?.findNavController()?.navigate(Game_LevelDialogFragmentDirections.actionGameDialogFragmentToScoreboardFragment())
         })
+
+        btn_next.setOnClickListener(View.OnClickListener {
+            closefragment()
+//            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToGameFragment())
+        })
+
+        btn_home.setOnClickListener(View.OnClickListener {
+            view?.findNavController()?.navigate(Game_LevelDialogFragmentDirections.actionGameDialogFragmentToTitleFragment())
+        })
+
+
+
 
         return binding.root
     }
 
 
+    private fun closefragment() {
+        val manager: FragmentManager? = fragmentManager
+        manager!!.popBackStack();
+    }
 
     // gibt einen boolischen wert zurück welcher sagt ob der current Wert gleich dem letzten Wert der liste question ist
     // dh ein lvl ist zu ende
@@ -58,6 +75,7 @@ class TestGameDialogFragment : DialogFragment() {
         }
         return isLast
     }
+
 
     // gibt einen boolischen wert zurück welcher sagt ob der current Wert gleich dem letzten Wert der liste level ist
     // dh ein spiel ist zu ende

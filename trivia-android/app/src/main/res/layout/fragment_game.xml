@@ -36,17 +36,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <Button
-                android:id="@+id/testPopup"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/f_consolas"
-                android:padding="10sp"
-                android:text="testPopup"
-                android:textSize="@dimen/button_submit_text_size"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints" />
+<!--            <Button-->
+<!--                android:id="@+id/testPopup"-->
+<!--                android:layout_width="225dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:fontFamily="@font/f_consolas"-->
+<!--                android:padding="10sp"-->
+<!--                android:text="testPopup"-->
+<!--                android:textSize="@dimen/button_submit_text_size"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                tools:ignore="MissingConstraints" />-->
 
             <TextView
                 android:id="@+id/questionText"

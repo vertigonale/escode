@@ -22,8 +22,13 @@
     <string name="select_an_avatar">Select an Avatar</string>
     <string name="android_trivia">Escode</string>
 
-    <string name="about_text">Android Trivia will help remind you of important concepts you have learned and will learn in Android development.\n\nConsider modifying the questions and graphics to make this game your own!</string>
-    <string name="rules_text">Select the answer from the options given. Each time you get an answer correct, you advance to the next question.\n\nIf you get the answer wrong, your game ends! You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
+    <string name="about_text">ESCODE is an educational Escape Room Game. You learn the differences between Java and Kotlin through various kind of puzzles! \n\n
+        Currently there is only one kind of puzzle implemented - a simple multiple-choice puzzle :D </string>
+    <string name="rules_text">It is a simple multiple-choice puzzle. \n\n1 Question, 4 Answers.\n\nTo make it more exciting.... You have three HEARTS! \n
+        Every time you get a question wrong you loose one heart. At the end of a level and entire game round you will see how many Hearts you have saved. \nYou
+        can compare yourself with the others in the scoreboard :))) \n\nCan you beat all of them?
+        answer correct, you advance to the next question.\n\nEvery time you get a question wrong, you will loose one heart of
+        You can return to the title screen using up or back from within the game screen, and this will also end your game.</string>
 
     <string name="rules">Rules</string>
     <string name="about">About</string>
@@ -59,5 +64,6 @@
     <string name="fb_nonExistent">in next Update !!</string>
     <string name="aboutTitle">About</string>
     <string name="rulesTitle">Rules</string>
+    <string name="popBtn_again">Try Again</string>
 
 </resources>

@@ -44,10 +44,11 @@
             app:destination="@id/titleFragment" />
 
         <action
-            android:id="@+id/action_gameFragment_to_gameDialogFragment"
-            app:destination="@id/gameDialogFragment" />
-
-
+            android:id="@+id/action_gameFragment_to_game_LevelDialogFragment"
+            app:destination="@id/game_LevelDialogFragment" />
+        <action
+            android:id="@+id/action_gameFragment_to_game_EndDialogFragment"
+            app:destination="@id/game_EndDialogFragment" />
     </fragment>
 
     <fragment
@@ -63,10 +64,10 @@
         tools:layout="@layout/fragment_about" />
 
     <fragment
-        android:id="@+id/gameDialogFragment"
-        android:name="com.example.android.escode.game.GameDialogFragment"
+        android:id="@+id/game_LevelDialogFragment"
+        android:name="com.example.android.escode.game.Game_LevelDialogFragment"
         android:label="fragment_game_dialog"
-        tools:layout="@layout/fragment_game_dialog" >
+        tools:layout="@layout/fragment_game_level_dialog" >
         <action
             android:id="@+id/action_gameDialogFragment_to_titleFragment"
             app:destination="@id/titleFragment" />
@@ -85,6 +86,23 @@
         <action
             android:id="@+id/action_scoreboardFragment_to_titleFragment"
             app:destination="@id/titleFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/game_EndDialogFragment"
+        android:name="com.example.android.escode.game.Game_EndDialogFragment"
+        android:label="fragment_game_end_dialog"
+        tools:layout="@layout/fragment_game_end_dialog"
+        app:startDestination="@id/action_game_EndDialogFragment_to_gameFragment">
+        <action
+            android:id="@+id/action_game_EndDialogFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+        <action
+            android:id="@+id/action_game_EndDialogFragment_to_scoreboardFragment"
+            app:destination="@id/scoreboardFragment" />
+        <action
+            android:id="@+id/action_game_EndDialogFragment_to_gameFragment"
+            app:destination="@id/gameFragment" />
     </fragment>
 
 </navigation>

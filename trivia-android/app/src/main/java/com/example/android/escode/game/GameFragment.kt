@@ -121,10 +121,10 @@ class GameFragment : Fragment() {
         val radioGroup = binding.questionRadioGroup
 
 
-        // TESTING PURPOSE
-        binding.testPopup.setOnClickListener { view: View ->
-            showPopup()
-        }
+//        // TESTING PURPOSE
+//        binding.testPopup.setOnClickListener { view: View ->
+//            showPopup()
+//        }
 
 
         // Set the onClickListener for the submitButton
@@ -246,12 +246,12 @@ class GameFragment : Fragment() {
 
                 levelIndex++
                 heartCountLevel = 0
-                showPopup()
+                showLevelPopup()
 
             } else {
 
                 levelIndex = 0
-                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToTitleFragment())
+                showEndPopup()
             }
         }
     }
@@ -296,17 +296,17 @@ class GameFragment : Fragment() {
     }
 
 
-    fun showPopup (){
+    fun showLevelPopup (){
 
 //        val dialogFragment = GameDialogFragment()
 //        dialogFragment.setTargetFragment(this, 0)
 //        val manager: FragmentManager? = fragmentManager
 //        val ft: FragmentTransaction = manager!!.beginTransaction()
-        view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
+        view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameLevelDialogFragment())
+    }
 
-
-
-
+    fun showEndPopup() {
+        view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameEndDialogFragment())
     }
 
 
