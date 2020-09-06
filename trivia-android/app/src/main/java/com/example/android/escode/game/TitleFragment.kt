@@ -23,6 +23,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -30,6 +31,9 @@ import androidx.navigation.ui.NavigationUI
 import com.example.android.escode.R
 import com.example.android.escode.game.TitleFragmentDirections
 import com.example.android.escode.databinding.FragmentTitleBinding
+import kotlinx.android.synthetic.main.fragment_title.*
+import kotlinx.android.synthetic.main.fragment_title.view.*
+
 // Serena Comment
 class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +45,15 @@ class TitleFragment : Fragment() {
         binding.playButton.setOnClickListener { v: View ->
             v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToGameFragment())
         }
+
+        binding.playButton2.setOnClickListener{v:View ->
+            Toast.makeText(this.context, R.string.fb_nonExistent, Toast.LENGTH_SHORT).show()
+        }
+
+        binding.playButton3.setOnClickListener{v:View ->
+            v.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToScoreboardFragment())
+        }
+
         setHasOptionsMenu(true)
         return binding.root
     }
