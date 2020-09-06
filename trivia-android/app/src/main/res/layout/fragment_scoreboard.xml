@@ -1,64 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.android.escode.game.ScoreboardFragment">
 
-<TableLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:stretchColumns="1"> <!-- stretch the second column of the layout-->>
+    <data>
 
-    <TableRow
-        android:id="@+id/r1"
+        <variable
+            name="scoreboard"
+            type="com.example.android.escode.game.ScoreboardFragment" />
+    </data>
+
+    <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:stretchColumns="1"> <!-- stretch the second column of the layout-->>
+        <TableRow
+            android:id="@+id/r1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/simpleTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#b0b0b0"
-            android:padding="18dip"
-            android:text="Text 1"
-            android:textColor="#000"
-            android:textSize="12dp" />
+            <TextView
+                android:id="@+id/r1c1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="@{scoreboard.whichLevelString}"
+                android:textColor="#000"
+                android:textSize="12dp" />
 
-        <TextView
-            android:id="@+id/simpleTextView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF0000"
-            android:padding="18dip"
-            android:text="Text 2"
-            android:textColor="#000"
-            android:textSize="14dp" />
+            <TextView
+                android:id="@+id/r1c2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="@{scoreboard.whichLevelHeartCountString}"
+                android:textColor="#000"
+                android:textSize="14dp" />
 
-    </TableRow>
+            <TextView
+                android:id="@+id/r1c3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="@{scoreboard.whichTotalHeartCountString}"
+                android:textColor="#000"
+                android:textSize="14dp" />
+
+        </TableRow>
 
 
-    <TableRow
-        android:id="@+id/r2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        <TableRow
+            android:id="@+id/r2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
 
-        <TextView
-            android:id="@+id/simpleTextView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#b0b0b0"
-            android:padding="18dip"
-            android:text="Text 1"
-            android:textColor="#000"
-            android:textSize="12dp" />
+            <TextView
+                android:id="@+id/r2c1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#b0b0b0"
+                android:padding="18dip"
+                android:text="Text 1"
+                android:textColor="#000"
+                android:textSize="12dp" />
 
-        <TextView
-            android:id="@+id/simpleTextView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="#FF0000"
-            android:padding="18dip"
-            android:text="Text 2"
-            android:textColor="#000"
-            android:textSize="14dp" />
+            <TextView
+                android:id="@+id/r2c2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="Text 2"
+                android:textColor="#000"
+                android:textSize="14dp" />
 
-    </TableRow>
+            <TextView
+                android:id="@+id/r2c3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#FF0000"
+                android:padding="18dip"
+                android:text="@{scoreboard.whichTotalHeartCountString}"
+                android:textColor="#000"
+                android:textSize="14dp" />
 
-</TableLayout>
+        </TableRow>
+
+    </TableLayout>
+</layout>
