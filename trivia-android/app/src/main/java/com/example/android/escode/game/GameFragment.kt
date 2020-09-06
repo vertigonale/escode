@@ -34,6 +34,7 @@ import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
 import com.example.android.escode.EscodeViewModel
+import com.example.android.escode.popCommunicator
 
 
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -103,7 +104,9 @@ class GameFragment : Fragment() {
     lateinit var heartCountLevelString: String
     lateinit var heartCountTotalString: String
 
-
+//    // passing Variable variables
+    var currentScore: Int = 7
+//    lateinit var comm: popCommunicator
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -125,6 +128,8 @@ class GameFragment : Fragment() {
 //        binding.testPopup.setOnClickListener { view: View ->
 //            showPopup()
 //        }
+
+//        comm = activity as popCommunicator
 
 
         // Set the onClickListener for the submitButton
@@ -243,7 +248,8 @@ class GameFragment : Fragment() {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             if (levelIndex < 2) {
-
+                currentScore = heartCountLevel
+//                comm.passDataCom(currentScore)
                 levelIndex++
                 heartCountLevel = 0
                 showLevelPopup()
