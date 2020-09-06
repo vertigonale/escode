@@ -10,13 +10,14 @@ import android.widget.Button
 import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameDialogBinding
 
 
-class GameDialogFragment : DialogFragment() {
-
+//class GameDialogFragment : DialogFragment() {
+class GameDialogFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -35,9 +36,17 @@ class GameDialogFragment : DialogFragment() {
 
 
 
-//        btn_score.setOnClickListener(View.OnClickListener {
-//            view?.findNavController()?.navigate(GameFragmentDirections.action_gameDialogFragment_to_scoreboardFragment())
-//        })
+        btn_score.setOnClickListener(View.OnClickListener {
+            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToScoreboardFragment())
+        })
+
+        btn_next.setOnClickListener(View.OnClickListener {
+            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToGameFragment())
+        })
+
+        btn_home.setOnClickListener(View.OnClickListener {
+            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToTitleFragment())
+        })
 
         return binding.root
     }

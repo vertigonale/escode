@@ -243,9 +243,9 @@ class GameFragment : Fragment() {
             // We've won!  Navigate to the gameWonFragment.
             // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
             if (levelIndex < 2) {
+
                 levelIndex++
                 heartCountLevel = 0
-//                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
                 showPopup()
 
             } else {
@@ -298,21 +298,13 @@ class GameFragment : Fragment() {
 
     fun showPopup (){
 
-//        val dialogFragment = GameDialogFragment()i
+//        val dialogFragment = GameDialogFragment()
 //        dialogFragment.setTargetFragment(this, 0)
 //        val manager: FragmentManager? = fragmentManager
 //        val ft: FragmentTransaction = manager!!.beginTransaction()
-//
-////        dialogFragment.setCancelable(false)
-//        dialogFragment.show(fragmentManager, "game dialog")
+        view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
 
-        findNavController().navigate(
-                R.id.action_showDialog
-        // ToDo viewmodel
-//                EscodeViewModel.createArguments(it)
-        )
 
-        // Todo set level index heart counts!
 
 
     }

@@ -26,10 +26,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.android.escode.databinding.ActivityMainBinding
-import com.example.android.escode.destinations.GameDialogNavigator
-import kotlinx.android.synthetic.main.activity_main.*
-import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
 
 class MainActivity : AppCompatActivity() {
     private lateinit var drawerLayout: DrawerLayout
@@ -42,12 +38,12 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        val destination = GameDialogNavigator(myNavHostFragment.childFragmentManager)
-        myNavHostFragment.findNavController().navigatorProvider.addNavigator(destination)
-
-        val inflater = myNavHostFragment.findNavController().navInflater
-        val graph = inflater.inflate(R.navigation.navigation)
-        myNavHostFragment.findNavController().graph = graph
+//        val destination = GameDialogNavigator(myNavHostFragment.childFragmentManager)
+//        myNavHostFragment.findNavController().navigatorProvider.addNavigator(destination)
+//
+//        val inflater = myNavHostFragment.findNavController().navInflater
+//        val graph = inflater.inflate(R.navigation.navigation)
+//        myNavHostFragment.findNavController().graph = graph
 
 
         val navController = this.findNavController(R.id.myNavHostFragment)
