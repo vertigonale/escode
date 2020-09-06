@@ -57,5 +57,7 @@
     <string name="fb_noChoice">Please choose an answer!</string>
     <string name="fb_correct">Correct!</string>
     <string name="fb_nonExistent">in next Update !!</string>
+    <string name="aboutTitle">About</string>
+    <string name="rulesTitle">Rules</string>
 
 </resources>

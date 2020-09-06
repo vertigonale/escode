@@ -24,13 +24,13 @@
 
     <ImageView
         android:id="@+id/navHeaderImage"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="163dp"
+        android:layout_height="136dp"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/a_titlebg_name" />
+        app:srcCompat="@drawable/heart_full" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
