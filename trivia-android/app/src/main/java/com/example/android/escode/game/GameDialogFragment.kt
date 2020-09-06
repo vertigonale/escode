@@ -1,7 +1,6 @@
 package com.example.android.escode.game
 
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -9,8 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameDialogBinding
@@ -41,7 +40,8 @@ class GameDialogFragment : Fragment() {
         })
 
         btn_next.setOnClickListener(View.OnClickListener {
-            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToGameFragment())
+            closefragment()
+//            view?.findNavController()?.navigate(GameDialogFragmentDirections.actionGameDialogFragmentToGameFragment())
         })
 
         btn_home.setOnClickListener(View.OnClickListener {
@@ -52,6 +52,10 @@ class GameDialogFragment : Fragment() {
     }
 
 
+    private fun closefragment() {
+        val manager: FragmentManager? = fragmentManager
+        manager!!.popBackStack();
+    }
 
     // gibt einen boolischen wert zurück welcher sagt ob der current Wert gleich dem letzten Wert der liste question ist
     // dh ein lvl ist zu ende
