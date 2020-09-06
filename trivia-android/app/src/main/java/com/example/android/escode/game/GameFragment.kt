@@ -29,9 +29,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
+import com.example.android.escode.EscodeViewModel
 
 
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -118,13 +120,15 @@ class GameFragment : Fragment() {
 
         val radioGroup = binding.questionRadioGroup
 
+
+        // TESTING PURPOSE
         binding.testPopup.setOnClickListener { view: View ->
             showPopup()
         }
+
+
         // Set the onClickListener for the submitButton
         binding.submitButton.setOnClickListener { view: View ->
-
-
 
             var checkedId = -1
             checkedId = radioGroup.checkedRadioButtonId
@@ -241,8 +245,8 @@ class GameFragment : Fragment() {
             if (levelIndex < 2) {
                 levelIndex++
                 heartCountLevel = 0
-                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
-//                showPopup()
+//                view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialogFragment())
+                showPopup()
 
             } else {
 
@@ -294,13 +298,19 @@ class GameFragment : Fragment() {
 
     fun showPopup (){
 
-//        val dialogFragment = GameDialogFragment()
+//        val dialogFragment = GameDialogFragment()i
 //        dialogFragment.setTargetFragment(this, 0)
 //        val manager: FragmentManager? = fragmentManager
 //        val ft: FragmentTransaction = manager!!.beginTransaction()
 //
 ////        dialogFragment.setCancelable(false)
 //        dialogFragment.show(fragmentManager, "game dialog")
+
+        findNavController().navigate(
+                R.id.action_showDialog
+        // ToDo viewmodel
+//                EscodeViewModel.createArguments(it)
+        )
 
         // Todo set level index heart counts!
 
