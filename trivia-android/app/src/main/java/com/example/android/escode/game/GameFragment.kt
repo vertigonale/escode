@@ -208,11 +208,6 @@ class GameFragment : Fragment() {
         }
 
 
-        // in case we need it
-/*        binding.btnMyDialog.setOnClickListener { view: View ->
-            view.findNavController().navigate(GameFragmentDirections.actionGameFragmentToGameDialog())
-        }*/
-
         return binding.root
     }
 
@@ -221,7 +216,6 @@ class GameFragment : Fragment() {
 
     // sets the first question
     private fun startQuestions() {
-        /*questions.shuffle()*/
         questionIndex = 0
         setLevel()
         setQuestion()
@@ -232,16 +226,11 @@ class GameFragment : Fragment() {
         currentLevel = levels[levelIndex]
     }
 
-    // Sets the question and randomizes the answers.  This only changes the data, not the UI.
-    // Calling invalidateAll on the FragmentGameBinding updates the data.
+
     private fun setQuestion() {
         currentQuestion = currentLevel.questions[questionIndex]
         //currentQuestion = questions[questionIndex]
-        // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
-
-        /*// and shuffle them
-        answers.shuffle()*/
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions, levelIndex + 1, numLevels)
     }
@@ -265,11 +254,8 @@ class GameFragment : Fragment() {
         if (questionIndex < numQuestions) {
             currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
-//            binding.invalidateAll()
         }
         else {
-            // We've won!  Navigate to the gameWonFragment.
-            // view?.findNavController()?.navigate(GameFragmentDirections.actionGameFragmentToGameDialog(/*numQuestions,questionIndex*/))
 
             if (levelIndex < 2) {
 
@@ -284,7 +270,7 @@ class GameFragment : Fragment() {
             }
         }
     }
-
+// enables them again for the next level
     fun enableAllBtns (){
 //        btn0.isChecked = false
         btn0.isEnabled = true
@@ -293,7 +279,7 @@ class GameFragment : Fragment() {
         btn3.isEnabled = true
     }
 
-    // disables the selected radio button & enables them again for the next level
+    // disables the selected radio button
     fun disableSelectedBtn (selectedBtn: RadioButton){
 
         if (selectedBtn != btn0){
@@ -326,7 +312,6 @@ class GameFragment : Fragment() {
 
 
     fun showLevelPopup (){
-
 //        val dialogFragment = GameDialogFragment()
 //        dialogFragment.setTargetFragment(this, 0)
 //        val manager: FragmentManager? = fragmentManager
