@@ -193,7 +193,7 @@ class GameFragment : Fragment() {
                     advanceToNextQuestion()
                     enableAllBtns()
                     binding.invalidateAll()
-                    answers.shuffle()
+//                    answers.shuffle()
 
                 } else {
 
@@ -228,7 +228,7 @@ class GameFragment : Fragment() {
         setLevel()
         setQuestion()
         heartCountToString()
-        answers.shuffle()
+//        answers.shuffle()
     }
 
     private fun setLevel() {
@@ -264,7 +264,7 @@ class GameFragment : Fragment() {
         if (questionIndex < numQuestions) {
             currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
-            answers.shuffle()
+//            answers.shuffle()
         }
         else {
 
