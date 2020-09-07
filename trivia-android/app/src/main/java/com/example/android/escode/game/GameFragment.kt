@@ -118,6 +118,7 @@ class GameFragment : Fragment() {
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
 
+
         // Bind this fragment class to the layout
         binding.game = this
 
@@ -155,6 +156,7 @@ class GameFragment : Fragment() {
                         selectedBtn = btn3}
                 }
 
+
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
@@ -163,6 +165,7 @@ class GameFragment : Fragment() {
                     advanceToNextQuestion()
                     enableAllBtns()
                     binding.invalidateAll()
+                    answers.shuffle()
 
                 } else {
 
@@ -203,6 +206,7 @@ class GameFragment : Fragment() {
         setLevel()
         setQuestion()
         heartCountToString()
+        answers.shuffle()
     }
 
     private fun setLevel() {
@@ -216,13 +220,13 @@ class GameFragment : Fragment() {
         //currentQuestion = questions[questionIndex]
         // randomize the answers into a copy of the array
         answers = currentQuestion.answers.toMutableList()
-
-        /*// and shuffle them
-        answers.shuffle()*/
+//        // and shuffle them
+//        answers.shuffle()
 
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions, levelIndex + 1, numLevels)
     }
 
+    //// NOTE: jedes mal wenn man falsch antwortet steht die richtige antwort immer auf der ersten stelle :P
 
 
     private fun resetQuestion() {
@@ -242,6 +246,8 @@ class GameFragment : Fragment() {
         if (questionIndex < numQuestions) {
             currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
+            answers.shuffle()
+
 //            binding.invalidateAll()
         }
         else {
