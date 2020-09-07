@@ -34,6 +34,7 @@ import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameBinding
 import kotlinx.android.synthetic.main.fragment_game.*
 import com.example.android.escode.EscodeViewModel
+import com.example.android.escode.popCommunicator
 
 
 //import kotlinx.android.synthetic.main.fragment_game.*
@@ -130,7 +131,9 @@ class GameFragment : Fragment() {
     lateinit var heartCountLevelString: String
     lateinit var heartCountTotalString: String
 
-
+//    // passing Variable variables
+    var currentScore: Int = 7
+//    lateinit var comm: popCommunicator
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -143,6 +146,7 @@ class GameFragment : Fragment() {
         // Shuffles the questions and sets the question index to the first question.
         startQuestions()
 
+
         // Bind this fragment class to the layout
         binding.game = this
 
@@ -153,6 +157,8 @@ class GameFragment : Fragment() {
 //        binding.testPopup.setOnClickListener { view: View ->
 //            showPopup()
 //        }
+
+//        comm = activity as popCommunicator
 
 
         // Set the onClickListener for the submitButton
@@ -178,6 +184,7 @@ class GameFragment : Fragment() {
                         selectedBtn = btn3}
                 }
 
+
                 // The first answer in the original question is always the correct one, so if our
                 // answer matches, we have the correct answer.
                 if (answers[answerIndex] == currentQuestion.answers[0]) {
@@ -186,6 +193,7 @@ class GameFragment : Fragment() {
                     advanceToNextQuestion()
                     enableAllBtns()
                     binding.invalidateAll()
+                    answers.shuffle()
 
                 } else {
 
@@ -220,6 +228,7 @@ class GameFragment : Fragment() {
         setLevel()
         setQuestion()
         heartCountToString()
+        answers.shuffle()
     }
 
     private fun setLevel() {
@@ -235,6 +244,7 @@ class GameFragment : Fragment() {
         (activity as AppCompatActivity).supportActionBar?.title = getString(R.string.title_android_trivia_question, questionIndex + 1, numQuestions, levelIndex + 1, numLevels)
     }
 
+    //// NOTE: jedes mal wenn man falsch antwortet steht die richtige antwort immer auf der ersten stelle :P
 
 
     private fun resetQuestion() {
@@ -254,11 +264,13 @@ class GameFragment : Fragment() {
         if (questionIndex < numQuestions) {
             currentQuestion = currentLevel.questions[questionIndex]
             setQuestion()
+            answers.shuffle()
         }
         else {
 
             if (levelIndex < 2) {
-
+                currentScore = heartCountLevel
+//                comm.passDataCom(currentScore)
                 levelIndex++
                 heartCountLevel = 0
                 showLevelPopup()

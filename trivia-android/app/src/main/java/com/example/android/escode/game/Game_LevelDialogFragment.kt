@@ -14,21 +14,25 @@ import androidx.fragment.app.FragmentManager
 import androidx.navigation.findNavController
 import com.example.android.escode.R
 import com.example.android.escode.databinding.FragmentGameLevelDialogBinding
+import kotlinx.android.synthetic.main.fragment_game_level_dialog.*
 
 
 //class GameDialogFragment : DialogFragment() {
 class Game_LevelDialogFragment : Fragment() {
 
+    var levelScorePB: Int = 5
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         // Inflate the layout for this fragment
         val binding = DataBindingUtil.inflate<FragmentGameLevelDialogBinding>(
                 inflater, R.layout.fragment_game_level_dialog, container, false)
 
+////////////////////////
+//        levelScorePB = arguments!!.getInt("levelScoreP")
     // Variables
         // Texts...
-        val popTitle: String = getString(R.string.popTitle_level)
-        val popText: String = getString(R.string.popText_level, 2,3)
+        binding.popTitle.setText(getString(R.string.popTitle_level))
+        binding.popText.setText(getString(R.string.popText_level, levelScorePB,9))
         // Buttons...
         val btn_home: ImageButton = binding.popBtn1
         val btn_score: Button = binding.popBtn2

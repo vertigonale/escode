@@ -32,7 +32,7 @@ import com.example.android.escode.game.Game_EndDialogFragment
 import com.example.android.escode.game.Game_LevelDialogFragment
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), popCommunicator {
     private lateinit var drawerLayout: DrawerLayout
     private lateinit var appBarConfiguration : AppBarConfiguration
 
@@ -86,5 +86,10 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return NavigationUI.navigateUp(navController, appBarConfiguration)
+    }
+
+    override fun passDataCom(levelScoreP: Int) {
+        val bundle = Bundle()
+        bundle.putInt("levelScoreP",levelScoreP)
     }
 }
